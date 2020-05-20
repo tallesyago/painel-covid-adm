@@ -173,8 +173,8 @@
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
-                            return   '<a href="" class="btn btn-primary" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + row.conteudo + '\');return false;">Editar</a>'+
-                            ' <a href="" class="btn btn-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a>';
+                            return   '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + row.conteudo + '\');return false;">Editar</a>'+
+                            ' <a href="" class="btn btn-outline-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a></div>';
                         },
                     }
                 ],
