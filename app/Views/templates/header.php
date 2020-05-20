@@ -38,7 +38,7 @@
 
   <!-- header -->
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Painel COVID</a>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Painel COVID 19</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,18 +47,21 @@
   <!-- sidebar -->
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="sidebar-sticky pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="/dashboard">
-                <span data-feather="home"></span>
-                Início <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <?php if (session()->get('isLoggedIn')) : ?>
+      <?php if (session()->get('isLoggedIn')) : ?>
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="sidebar-sticky pt-3">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>GERAL</span>
+            </h6>
+            <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/casos">
+                <a class="nav-link" href="/painel">
+                  <span data-feather="home"></span>
+                  Início <span class="sr-only"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/casos">
                   <span data-feather="bar-chart-2"></span>
                   Casos
                 </a>
@@ -69,32 +72,35 @@
                   Notícias
                 </a>
               </li>
-          </ul>
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Meus dados</span>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="/profile">
-                <span data-feather="user"></span>
-                Perfil
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">
-                <span data-feather="log-out"></span>
-                Sair
-              </a>
-            </li>
-          <?php else : ?>
-            <li class="nav-item">
-              <a class="nav-link active" href="/register">
-                <span data-feather="user"></span>
-                Registrar
-              </a>
-            </li>
-          <?php endif; ?>
-          </ul>
-
-        </div>
-      </nav>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Meus dados</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="/perfil">
+                  <span data-feather="user"></span>
+                  Perfil
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                  <span data-feather="log-out"></span>
+                  Sair
+                </a>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Administração</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="/registro">
+                  <span data-feather="user"></span>
+                  Novo usuário
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      <?php endif; ?>

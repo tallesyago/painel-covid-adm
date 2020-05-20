@@ -13,8 +13,6 @@ class NoticiasModel extends Model{
     protected $updatedAtField = 'updated_at';
     protected $deletedAtField = 'deleted_at';
 
-
-
     public function getNoticias($id = null){
         if($id == null){
             // $this->withDeleted(); //traz registros deletados com soft delete tb

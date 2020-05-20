@@ -13,8 +13,6 @@ class CasosModel extends Model{
     protected $updatedAtField = 'updated_at';
     protected $deletedAtField = 'deleted_at';
 
-
-
     public function getCasos($id = null){
         if($id == null){
             // $this->withDeleted(); //traz registros deletados com soft delete tb
