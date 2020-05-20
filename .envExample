@@ -20,7 +20,8 @@ CI_ENVIRONMENT = development
 # APP
 #--------------------------------------------------------------------
 
-# app.baseURL = ''
+app.baseURL = 'http://localhost:8080'
+
 # app.forceGlobalSecureRequests = false
 
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
@@ -50,9 +51,9 @@ CI_ENVIRONMENT = development
 #--------------------------------------------------------------------
 
 database.default.hostname = localhost
-atabase.default.database = bd_covid
+database.default.database = test6
 database.default.username = root
-database.default.password = 
+database.default.password =
 database.default.DBDriver = MySQLi
 
 # database.tests.hostname = localhost

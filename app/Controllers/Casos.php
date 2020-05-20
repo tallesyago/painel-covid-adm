@@ -7,11 +7,17 @@ use CodeIgniter\Controller;
 
 class Casos extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $data = [];
+
+        echo view('templates/header', $data);
         echo view('casos/view');
+        echo view('templates/footer');
     }
 
-    public function storeDt(){
+    public function storeDt()
+    {
         $model = new CasosModel();
         $model->save([
             'idCaso' => $this->request->getVar('id'),
@@ -22,14 +28,11 @@ class Casos extends Controller
             'recuperadosCaso' => $this->request->getVar('recuperados'),
             'dataCaso' => date("Y-m-d")
         ]);
-
-    } 
+    }
 
     public function deleteDt($id = null)
     {
         $model = new CasosModel();
         $model->delete($id);
     }
-
-
 }

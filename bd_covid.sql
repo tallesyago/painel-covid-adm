@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Maio-2020 às 17:29
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.5
+-- Generation Time: May 20, 2020 at 07:36 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_covid`
+-- Database: `bd_covid`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `casos`
+-- Table structure for table `casos`
 --
 
 CREATE TABLE `casos` (
@@ -40,19 +41,43 @@ CREATE TABLE `casos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `casos`
+-- Dumping data for table `casos`
 --
 
 INSERT INTO `casos` (`idCaso`, `suspeitosCaso`, `confirmadosCaso`, `descartadosCaso`, `obitosCaso`, `recuperadosCaso`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 132, 131, 133, 135, 134, '0000-00-00 00:00:00', '2020-05-19 09:58:21', '0000-00-00 00:00:00'),
+(1, 133, 555, 133, 135, 134, '0000-00-00 00:00:00', '2020-05-19 09:58:21', '0000-00-00 00:00:00'),
 (2, 3, 3, 3, 3, 3, '0000-00-00 00:00:00', '2020-05-19 09:59:52', '2020-05-19 09:59:52'),
 (3, 2, 2, 2, 2, 2, '2020-05-19 10:03:51', '2020-05-19 10:06:58', '2020-05-19 10:06:58'),
-(4, 33, 323, 3, 3, 3, '2020-05-19 10:07:03', '2020-05-19 10:07:03', '0000-00-00 00:00:00');
+(4, 33, 323, 3, 3, 3, '2020-05-19 10:07:03', '2020-05-19 10:07:03', '0000-00-00 00:00:00'),
+(5, 1, 1, 1, 1, 1, '2020-05-19 16:23:45', '2020-05-19 16:23:45', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `noticias`
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `version` varchar(255) NOT NULL,
+  `class` text NOT NULL,
+  `group` varchar(255) NOT NULL,
+  `namespace` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `batch` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
+(1, '20121031100537', 'App\\Database\\Migrations\\AddUsers', 'default', 'App', 1589910572, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `noticias`
 --
 
 CREATE TABLE `noticias` (
@@ -65,7 +90,7 @@ CREATE TABLE `noticias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `noticias`
+-- Dumping data for table `noticias`
 --
 
 INSERT INTO `noticias` (`idNoticia`, `tituloNoticia`, `conteudoNoticia`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -121,37 +146,84 @@ INSERT INTO `noticias` (`idNoticia`, `tituloNoticia`, `conteudoNoticia`, `create
 (64, 'd', 'd', '2020-05-19 08:31:57', '2020-05-19 08:31:57', '0000-00-00 00:00:00'),
 (65, 'd', 'd', '2020-05-19 09:13:47', '2020-05-19 09:13:47', '0000-00-00 00:00:00');
 
+-- --------------------------------------------------------
+
 --
--- Índices para tabelas despejadas
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(3, 'Ariel', 'Granato', 'arielgranatob@gmail.com', '$2y$10$5FWrXAzeDSWvXua29HYZZ.XR/q0ZR7tocwcGfCBP5i6IUnAU9Xsl2', '2020-05-19 15:59:50', '0000-00-00 00:00:00');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `casos`
+-- Indexes for table `casos`
 --
 ALTER TABLE `casos`
   ADD PRIMARY KEY (`idCaso`) USING BTREE;
 
 --
--- Índices para tabela `noticias`
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `noticias`
 --
 ALTER TABLE `noticias`
   ADD PRIMARY KEY (`idNoticia`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `casos`
+-- AUTO_INCREMENT for table `casos`
 --
 ALTER TABLE `casos`
-  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de tabela `noticias`
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `noticias`
 --
 ALTER TABLE `noticias`
   MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
