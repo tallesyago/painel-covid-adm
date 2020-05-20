@@ -7,7 +7,7 @@
             <?= session()->get('success') ?>
           </div>
         <?php endif; ?>
-        <form class="" action="/painel" method="post">
+        <form class="" action="/" method="post">
           <div class="form-group">
             <label for="email">Email</label>
             <input type="text" class="form-control" name="email" id="email" value="<?= set_value('email') ?>">
