@@ -8,9 +8,7 @@ use CodeIgniter\Controller;
 class Casos extends Controller
 {
     public function index(){
-        echo view('templates/header');
         echo view('casos/view');
-        
     }
 
     public function storeDt(){

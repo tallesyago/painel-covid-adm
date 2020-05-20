@@ -8,9 +8,7 @@ use App\Models\NoticiasModel;
 class Noticias extends Controller
 {
     public function index(){
-        echo view('templates/header');
         echo view('noticias/view');
-        
     }
 
     public function storeDt(){
