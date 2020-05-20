@@ -12,10 +12,10 @@
     <!-- Bootstrap core CSS -->
     <link href="../assets/bootstrap.min.css" rel="stylesheet">
 
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.21/b-1.6.2/b-html5-1.6.2/b-print-1.6.2/cr-1.5.2/r-2.2.5/datatables.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.21/b-1.6.2/b-html5-1.6.2/b-print-1.6.2/cr-1.5.2/r-2.2.5/datatables.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -96,42 +96,29 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Notícias</h1>
-                    <!-- Button trigger modal -->
-                    <style>
-                        .float {
-                            position: fixed;
-                            bottom: 40px;
-                            right: 40px;
-                            text-align: center;
-                            box-shadow: 2px 2px 3px #999;
-                        }
-
-                        .my-float {
-                            margin-top: 22px;
-                        }
-                    </style>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="modalCad()">
+                        Cadastrar noticia
+                    </button>
                 </div>
 
 
                 <div class="table-responsive">
-                    <table class="table table-hover table-sm" id="tableNoticias">
+                    <table class="table table-striped table-bordered" style="width: 100%" id="tableNoticias">
                         <thead>
                             <tr>
                                 <th>id</th>
                                 <th>titulo</th>
                                 <th>conteudo</th>
-                                <th>ações</th>
+                                <th style="width: 20%">ações</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-
+                <br/><br/>
             </main>
         </div>
     </div>
-    <button type="button" class="btn btn-primary float" data-toggle="modal" onclick="modalCad()">
-        Cadastrar noticia
-    </button>
+
 
 
     <!-- Modal -->
@@ -152,7 +139,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="btn">Salvar</button>
                 </div>
             </div>
@@ -186,37 +173,37 @@
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
-                            return '<a href="" onClick="deletar(' + row.id + ');return false;">Excluir</a>' +
-                                ' <a href="" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + row.conteudo + '\');return false;">Editar</a>';
+                            return   '<a href="" class="btn btn-primary" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + row.conteudo + '\');return false;">Editar</a>'+
+                            ' <a href="" class="btn btn-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a>';
                         },
                     }
                 ],
                 dom: 'Bfrtip',
-                // buttons: [{
-                //         extend: 'print',
-                //         title: 'Painel Covid 19 - Relatório de Notícias - emitido em ' + dataAtualFormatada(),
-                //         text: '<i class=""></i> imprimir',
-                //         exportOptions: {
-                //             columns: [1, 2, 3, 4, 5]
-                //         }
-                //     },
-                //     {
-                //         extend: 'pdf',
-                //         title: 'Painel Covid 19 - Relatório de Casos - emitido em ' + dataAtualFormatada(),
-                //         text: '<i class=""></i> pdf',
-                //         exportOptions: {
-                //             columns: [1, 2, 3, 4, 5]
-                //         }
-                //     },
-                //     {
-                //         extend: 'excel',
-                //         title: 'Painel Covid 19 - Relatório de Casos - emitido em ' + dataAtualFormatada(),
-                //         text: '<i class=""></i> excel',
-                //         exportOptions: {
-                //             columns: [1, 2, 3, 4, 5]
-                //         }
-                //     }
-                // ],
+                buttons: [{
+                        extend: 'print',
+                        title: 'Painel Covid 19 - Relatório de Notícias - emitido em ' + dataAtualFormatada(),
+                        text: '<i class="print"></i> impressão',
+                        exportOptions: {
+                            columns: [1,2]
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        title: 'Painel Covid 19 - Relatório de Casos - emitido em ' + dataAtualFormatada(),
+                        text: '<i class=""></i> pdf',
+                        exportOptions: {
+                            columns: [1,2]
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        title: 'Painel Covid 19 - Relatório de Casos - emitido em ' + dataAtualFormatada(),
+                        text: '<i class=""></i> excel',
+                        exportOptions: {
+                            columns: [1, 2]
+                        }
+                    }
+                ],
                 responsive: true,
                 "oLanguage": {
                     "sSearch": "Pesquisa"
@@ -286,6 +273,14 @@
                     table.ajax.reload();
                 }
             });
+        }
+        function dataAtualFormatada() {
+            var data = new Date(),
+                dia = data.getDate().toString().padStart(2, '0'),
+                mes = (data.getMonth() + 1).toString().padStart(2, '0'), //+1 pois no getMonth Janeiro começa com zero.
+                ano = data.getFullYear();
+            time = data.getHours() + "h" + data.getMinutes() + "min";
+            return " " + dia + "-" + mes + "-" + ano + " " + time;
         }
 
         function modalEd() {
