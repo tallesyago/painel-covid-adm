@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\CasosModel;
+
 class Home extends BaseController
 {
 	public function index()
@@ -10,12 +12,13 @@ class Home extends BaseController
 	}
 	public function dados($id = null)
 	{
-		$data = [
-			'nome' => 'Uba',
-			'dia' => 'dasd',
-			'mes' => 'dasda',
-			'ano' => 'dasdsa',
-		];
+		$model = new CasosModel($id);
+		echo "o id eh ". $id . "<br>";
+		echo $model->getIdMunicipio();
+		$data['casos'] = $model->getCityCases();
+		
+		var_dump($data['casos']);
+		var_dump($data);
 
 		return view('/home/dados', $data);
 	}

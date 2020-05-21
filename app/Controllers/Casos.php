@@ -7,6 +7,7 @@ use CodeIgniter\Controller;
 
 class Casos extends Controller
 {
+    
     public function index()
     {
         $data = [];

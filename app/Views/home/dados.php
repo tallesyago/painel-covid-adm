@@ -62,11 +62,11 @@
             <section class="jumbotron text-center p-0">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="Index.php">Buscar</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?php echo $nome ?></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?php echo  'oi' ?></li>
                 </ol>
                 <h2 class="jumbotron-heading">Painel CoronaVírus</h2>
                 <p class="lead text-muted">Última Atualização em </p>
-                <p class="subtext"><strong><?php echo $dia . '/' . $mes . '/' . $ano ?></strong></p>
+                <p class="subtext"><strong><?php echo '' . '/' .  '/' . '' ?></strong></p>
             </section>
             <div class="row">
                 <div class="col-md-3">
@@ -74,12 +74,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="cor1"><?php if (isset($suspeito)) echo $suspeito;
+                                    <h3 class="cor1"><?php if (isset($casos['confirmadosCaso'])) echo $casos['confirmadosCaso'];
                                                         else echo '0'; ?></h3>
                                     <p class="subtext">Casos Suspeitos</p>
                                 </div>
                                 <div class="col">
-                                    <img class="img" src="images/resultado.png" width="70" height="70" align="right" alt="">
+                                    <img class="img" src="/assets/images/resultado.png" width="70" height="70" align="right" alt="">
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                     <p class="subtext">Casos Confirmados</p>
                                 </div>
                                 <div class="col">
-                                    <img class="img" src="images/pesquisa.png" width="70" height="70" align="right" alt="">
+                                    <img class="img" src="/assets/images/pesquisa.png" width="70" height="70" align="right" alt="">
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                                     <p class="subtext">Casos Descartados</p>
                                 </div>
                                 <div class="col">
-                                    <img class="img" src="images/cancelar.png" width="70" height="70" align="right" alt="">
+                                    <img class="img" src="/assets/images/cancelar.png" width="70" height="70" align="right" alt="">
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                     <p class="subtext">Casos de Óbitos</p>
                                 </div>
                                 <div class="col">
-                                    <img class="img" src="images/certidao-de-obito.png" width="70" height="70" align="right" alt="">
+                                    <img class="img" src="/assets/images/certidao-de-obito.png" width="70" height="70" align="right" alt="">
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
         var geojson;
         //valores exemplos definidos em mg-geojson.js
         $(document).ready(function() {
-            nome = '<?php echo $nome ?>';
+            nome = '<?php echo '' ?>';
             nome = nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             nome = nome.toLowerCase();
             nome = nome.replace(/ /g, '-')
