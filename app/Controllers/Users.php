@@ -138,6 +138,10 @@ class Users extends BaseController
 		return redirect()->to('/painel');
 	}
 
+	public function home(){
+		echo view('welcome_message');
+	}
+
 	//--------------------------------------------------------------------
 
 }

@@ -44,6 +44,7 @@ $routes->match(['get','post'],'perfil', 'Users::profile',['filter' => 'auth']);
 $routes->get('painel', 'Painel::index',['filter' => 'auth']);
 $routes->get('noticias', 'Noticias::index',['filter' => 'auth']);
 $routes->get('casos', 'Casos::index',['filter' => 'auth']);
+$routes->get('home', 'Home::index',['filter' => 'noauth']);
 
 
 
