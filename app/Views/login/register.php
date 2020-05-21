@@ -204,6 +204,10 @@
                 <input class="form-check-input" type="checkbox" id="" value="option1">
                 <label class="form-check-label" for="">Olaria</label>
               </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="" value="option1">
+                <label class="form-check-label" for="">Ubá</label>
+              </div>
             </div>
           </div>
           <div class="col-5 col-sm-5">
@@ -247,6 +251,10 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="" value="option1">
                 <label class="form-check-label" for="">Santa Bárbara do Monte Verde</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="" value="option1">
+                <label class="form-check-label" for="">Juiz de Fora</label>
               </div>
             </div>
           </div>
