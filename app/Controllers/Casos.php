@@ -10,10 +10,7 @@ class Casos extends Controller
     public function index()
     {
         $data = [];
-
-        echo view('templates/header', $data);
         echo view('casos/view');
-        echo view('templates/footer');
     }
 
     public function storeDt()
@@ -26,7 +23,8 @@ class Casos extends Controller
             'descartadosCaso' => $this->request->getVar('descartados'),
             'obitosCaso' => $this->request->getVar('obitos'),
             'recuperadosCaso' => $this->request->getVar('recuperados'),
-            'dataCaso' => date("Y-m-d")
+            'dataCaso' => date("Y-m-d"),
+            'idUsuario' => session()->get('id')
         ]);
     }
 

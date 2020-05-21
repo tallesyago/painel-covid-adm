@@ -11,12 +11,15 @@ class Casos extends Controller
     public function getDados()
     {
         $model = new CasosModel();
-        $model->select("idCaso, confirmadosCaso, suspeitosCaso, obitosCaso, descartadosCaso, recuperadosCaso");
+        $model->select("idCaso, confirmadosCaso, suspeitosCaso, obitosCaso, descartadosCaso, recuperadosCaso, created_at");
+        $model->where("idUsuario", session()->get('id'));
+        
         $casos = $model->findAll();
         $i = 0;
         $data = array();
         foreach ($casos as $caso) {
             $data[$i]['id'] = $caso['idCaso'];
+            $data[$i]['datax'] = $caso['created_at'];
             $data[$i]['confirmados'] = $caso['confirmadosCaso'];
             $data[$i]['suspeitos'] = $caso['suspeitosCaso'];
             $data[$i]['obitos'] = $caso['obitosCaso'];

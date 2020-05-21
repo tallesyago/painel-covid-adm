@@ -39,7 +39,7 @@ $routes->setAutoRoute(true);
 
 $routes->get('login', 'Users::index', ['filter' => 'noauth']);
 $routes->get('logout', 'Users::logout');
-$routes->match(['get','post'],'registro', 'Users::register', ['filter' => 'auth']);
+$routes->match(['get','post'],'registro', 'Users::register'); 
 $routes->match(['get','post'],'perfil', 'Users::profile',['filter' => 'auth']);
 $routes->get('painel', 'Painel::index',['filter' => 'auth']);
 $routes->get('noticias', 'Noticias::index',['filter' => 'auth']);

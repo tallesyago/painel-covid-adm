@@ -10,10 +10,7 @@ class Noticias extends Controller
     public function index()
     {
         $data = [];
-
-        echo view('templates/header', $data);
         echo view('noticias/view');
-        echo view('templates/footer');
     }
 
     public function storeDt()
@@ -22,7 +19,8 @@ class Noticias extends Controller
         $model->save([
             'idNoticia' => $this->request->getVar('id'),
             'tituloNoticia' => $this->request->getVar('titulo'),
-            'conteudoNoticia' => $this->request->getVar('conteudo')
+            'conteudoNoticia' => $this->request->getVar('conteudo'),
+            'idUsuario' => session()->get('id')
         ]);
     }
 

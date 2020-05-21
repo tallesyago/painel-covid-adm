@@ -8,9 +8,7 @@ class Painel extends BaseController
 	{
 		$data = [];
 
-		echo view('templates/header', $data);
-		echo view('login/painel');
-		echo view('templates/footer');
+		echo view('login/painel', $data);
 	}
 
 }
