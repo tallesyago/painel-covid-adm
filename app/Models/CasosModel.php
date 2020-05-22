@@ -4,14 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CasosModel extends Model
+class CasosModel extends Model 
 {   
-    private $idMunicipio;
-
-    public function __construct($idMunicipio) {
-        $this->setIdMunicipio($idMunicipio);
-    }    
-
     protected $table = "casos";
     protected $primaryKey = "idCaso";
     protected $allowedFields = ['idCaso', 'idMunicipio', 'idUsuario', 'suspeitosCaso', 'confirmadosCaso', 'descartadosCaso', 'obitosCaso', 'recuperadosCaso'];
@@ -21,13 +15,6 @@ class CasosModel extends Model
     protected $createdAtField = 'created_at';
     protected $updatedAtField = 'updated_at';
     protected $deletedAtField = 'deleted_at';
-
-    public function setIdMunicipio($idMunicipio) {
-        $this->idMunicipio = $idMunicipio;
-    }
-    public function getIdMunicipio() {
-        return $this->idMunicipio;
-    }
 
     public function getCasos($id = null)
     {

@@ -62,11 +62,11 @@
             <section class="jumbotron text-center p-0">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="Index.php">Buscar</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?php echo  'oi' ?></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= esc($casos['nomeMunicipio']) ?></li>
                 </ol>
                 <h2 class="jumbotron-heading">Painel CoronaVírus</h2>
                 <p class="lead text-muted">Última Atualização em </p>
-                <p class="subtext"><strong><?php echo '' . '/' .  '/' . '' ?></strong></p>
+                <p class="subtext"><strong><?php echo $casos['created_at'] ?></strong></p>
             </section>
             <div class="row">
                 <div class="col-md-3">
@@ -74,7 +74,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="cor1"><?php if (isset($casos['confirmadosCaso'])) echo $casos['confirmadosCaso'];
+                                    <h3 class="cor1"><?php if (isset($casos['suspeitosCaso'])) echo $casos['suspeitosCaso'];
                                                         else echo '0'; ?></h3>
                                     <p class="subtext">Casos Suspeitos</p>
                                 </div>
@@ -91,7 +91,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="cor2"><?php if (isset($confirmado)) echo $confirmado;
+                                    <h3 class="cor2"><?php if (isset($casos['confirmadosCaso'])) echo $casos['confirmadosCaso'];
                                                         else echo '0'; ?></h3>
                                     <p class="subtext">Casos Confirmados</p>
                                 </div>
@@ -108,7 +108,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="cor3"><?php if (isset($descartado)) echo $descartado;
+                                    <h3 class="cor3"><?php if (isset($casos['descartadosCaso'])) echo $casos['descartadosCaso'];
                                                         else echo '0'; ?></h3>
                                     <p class="subtext">Casos Descartados</p>
                                 </div>
@@ -125,7 +125,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="cor4"><?php if (isset($obito)) echo $obito;
+                                    <h3 class="cor4"><?php if (isset($casos['obitosCaso'])) echo $casos['obitosCaso'];
                                                         else echo '0'; ?></h3>
                                     <p class="subtext">Casos de Óbitos</p>
                                 </div>
@@ -203,7 +203,7 @@
         var geojson;
         //valores exemplos definidos em mg-geojson.js
         $(document).ready(function() {
-            nome = '<?php echo '' ?>';
+            nome = '<?= $casos['nomeMunicipio'] ?>';
             nome = nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             nome = nome.toLowerCase();
             nome = nome.replace(/ /g, '-')

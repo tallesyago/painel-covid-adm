@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CasosModel;
+use CodeIgniter\Controller;
 
 class Home extends BaseController
 {
@@ -12,13 +13,17 @@ class Home extends BaseController
 	}
 	public function dados($id = null)
 	{
-		$model = new CasosModel($id);
+
+		$model = new CasosModel(); 
 		echo "o id eh ". $id . "<br>";
-		echo $model->getIdMunicipio();
-		$data['casos'] = $model->getCityCases();
-		
+
+		$query = $model->query("Select * FROM casos c, municipios m WHERE c.idMunicipio = '".$id."' AND c.idMunicipio = m.idMunicipio ORDER BY c.idCaso DESC LIMIT 1");
+		$data['casos'] = $query->getRowArray();
+
+
+		// $data['casos'] = 
 		var_dump($data['casos']);
-		var_dump($data);
+		// var_dump($casos);
 
 		return view('/home/dados', $data);
 	}

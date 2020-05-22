@@ -11,7 +11,7 @@ class Casos extends Controller
     public function getDados()
     {
         $model = new CasosModel();
-        $model->select("idCaso, confirmadosCaso, suspeitosCaso, obitosCaso, descartadosCaso, recuperadosCaso, created_at");
+        $model->select("idCaso, idMunicipio, confirmadosCaso, suspeitosCaso, obitosCaso, descartadosCaso, recuperadosCaso, created_at");
         $model->where("idUsuario", session()->get('id'));
         
         $casos = $model->findAll();
