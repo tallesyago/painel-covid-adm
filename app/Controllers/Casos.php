@@ -16,8 +16,7 @@ class Casos extends Controller
         $id = session()->get('id');
         $query = $model->query("SELECT users_municipio.idMunicipio FROM users_municipio INNER JOIN users ON users.id = users_municipio.idUser INNER JOIN municipios ON idUsers_municipio = municipios.idMunicipio WHERE users_municipio.idUser=" . $id);
         $data = $query->getResult('array');
-        var_dump($data);
-        echo view('casos/view', $data);
+        return view('casos/view', $data);
     }
 
     public function storeDt()
@@ -25,6 +24,7 @@ class Casos extends Controller
         $model = new CasosModel();
         $model->save([
             'idCaso' => $this->request->getVar('id'),
+            'idMunicipio' => $this->request->getVar('idMunicipio'),
             'confirmadosCaso' => $this->request->getVar('confirmados'),
             'suspeitosCaso' => $this->request->getVar('suspeitos'),
             'descartadosCaso' => $this->request->getVar('descartados'),

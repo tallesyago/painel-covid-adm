@@ -90,6 +90,11 @@ class Users extends BaseController
 		$model = new MunicipiosModel();
 		$query = $model->query("Select * FROM municipios;");
 		$data = $query->getResult('array');
+		echo '<select class="form-control" id="municipio">';
+              foreach ($data as $row) {
+                echo "<option>" . $row['nomeMunicipio'] . "</option>";
+              }
+              echo "</select>"; 
 		return view('login/register', $data);
 	}
 

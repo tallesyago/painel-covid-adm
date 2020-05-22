@@ -25,11 +25,11 @@
           <div class="col-12 col-sm-6">
             <label for="municipio"><b>Municipio</b></label>
             <div class="form-group">
-              <?php echo '<select class="form-control" id="municipio">';
+            <?php /* echo '<select class="form-control" id="municipio">';
               foreach ($data as $row) {
                 echo "<option>" . $row['nomeMunicipio'] . "</option>";
               }
-              echo "</select>";
+              echo "</select>"; */
               ?>
             </div>
           </div>

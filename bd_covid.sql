@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2020 at 07:27 AM
+-- Generation Time: May 22, 2020 at 09:08 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -41,30 +41,6 @@ CREATE TABLE `casos` (
   `deleted_at` datetime NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `casos`
---
-
-INSERT INTO `casos` (`idCaso`, `idMunicipio`, `suspeitosCaso`, `confirmadosCaso`, `descartadosCaso`, `obitosCaso`, `recuperadosCaso`, `created_at`, `updated_at`, `deleted_at`, `idUsuario`) VALUES
-(1, 1, 133, 555, 133, 135, 134, '0000-00-00 00:00:00', '2020-05-20 22:13:36', '2020-05-20 22:13:36', 5),
-(2, 0, 3, 3, 3, 3, 3, '0000-00-00 00:00:00', '2020-05-19 09:59:52', '2020-05-19 09:59:52', 0),
-(3, 0, 2, 2, 2, 2, 2, '2020-05-19 10:03:51', '2020-05-19 10:06:58', '2020-05-19 10:06:58', 0),
-(4, 0, 8, 9, 7, 5, 6, '2020-05-19 10:07:03', '2020-05-20 22:16:04', '2020-05-20 22:16:04', 0),
-(5, 0, 2, 1, 3, 5, 4, '2020-05-19 16:23:45', '2020-05-20 22:16:05', '2020-05-20 22:16:05', 0),
-(6, 0, 11, 10, 12, 14, 13, '2020-05-20 22:16:15', '2020-05-20 22:16:15', '0000-00-00 00:00:00', 5),
-(7, 0, 16, 15, 17, 19, 18, '2020-05-20 22:16:28', '2020-05-20 22:16:28', '0000-00-00 00:00:00', 0),
-(8, 0, 9, 99, 99, 9, 9, '2020-05-20 22:16:37', '2020-05-20 22:16:39', '2020-05-20 22:16:39', 0),
-(9, 1, 9, 5, 8, 6, 7, '2020-05-20 22:18:49', '2020-05-20 22:18:49', '0000-00-00 00:00:00', 0),
-(10, 0, 3, 2, 4, 6, 5, '2020-05-20 23:12:55', '2020-05-20 23:12:55', '0000-00-00 00:00:00', 0),
-(11, 0, 3, 2, 4, 6, 5, '2020-05-20 23:14:38', '2020-05-20 23:14:38', '0000-00-00 00:00:00', 0),
-(12, 0, 9, 9, 9, 8, 9, '2020-05-20 23:17:45', '2020-05-21 10:56:10', '2020-05-21 10:56:10', 5),
-(13, 1, 3, 3, 3, 3, 3, '2020-05-20 23:21:33', '2020-05-21 10:42:23', '2020-05-21 10:42:23', 4),
-(14, 0, 1, 1, 1, 1, 1, '2020-05-21 10:47:50', '2020-05-21 10:47:50', '0000-00-00 00:00:00', 5),
-(15, 1, 213, 1212, 123, 3434, 434, '2020-05-21 22:28:56', '2020-05-21 22:38:32', '0000-00-00 00:00:00', 1),
-(16, 1, 1, 121, 23121, 31, 31212, '2020-05-21 22:38:57', '2020-05-21 22:38:57', '0000-00-00 00:00:00', 1),
-(17, 1, 1, 1, 1, 1, 1, '2020-05-21 22:43:48', '2020-05-21 22:43:48', '0000-00-00 00:00:00', 1),
-(18, 0, 1, 1, 1, 1, 1, '2020-05-21 22:44:37', '2020-05-21 22:44:37', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -155,7 +131,12 @@ INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `codMunicipio`) VALUES
 (47, 'Santa Rita do Ibitipoca', 0),
 (48, 'Rochedo de Minas', 0),
 (49, 'Santa Bárbara do Monte Verde', 0),
-(50, 'Juiz de Fora', 0);
+(50, 'Juiz de Fora', 0),
+(51, 'Dona Eusébia', 0),
+(52, 'São Sebastião da Vargem Alegre', 0),
+(53, 'Miraí', 0),
+(54, 'Descoberto', 0),
+(55, 'Brás Pires', 0);
 
 -- --------------------------------------------------------
 
@@ -178,31 +159,6 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`idNoticia`, `tituloNoticia`, `conteudoNoticia`, `created_at`, `updated_at`, `deleted_at`, `idUsuario`) VALUES
-(15, 'teste', 'teste', '2020-05-18 15:53:20', '2020-05-18 16:12:37', '2020-05-18 16:12:37', 5),
-(16, 'teste', 'teswte', '0000-00-00 00:00:00', '2020-05-18 21:18:35', '2020-05-18 21:18:35', 0),
-(17, 'cacaca', 'cacac', '0000-00-00 00:00:00', '2020-05-18 21:18:44', '2020-05-18 21:18:44', 0),
-(18, 'dasdsasad', 'das', '2020-05-18 17:36:42', '2020-05-18 21:24:35', '2020-05-18 21:24:35', 0),
-(19, 'cachaça', 'coie', '2020-05-18 17:36:52', '2020-05-18 21:36:03', '2020-05-18 21:36:03', 0),
-(20, 'd', 'd', '2020-05-18 20:33:23', '2020-05-18 21:35:32', '2020-05-18 21:35:32', 0),
-(21, 'coco', 'cococ', '2020-05-18 20:34:39', '2020-05-18 21:36:38', '2020-05-18 21:36:38', 0),
-(22, 'd', 'd', '2020-05-18 20:35:19', '2020-05-18 21:36:55', '2020-05-18 21:36:55', 0),
-(23, 'cococo', 'cococ', '2020-05-18 20:35:33', '2020-05-18 21:38:14', '2020-05-18 21:38:14', 0),
-(24, 'd', 'd', '2020-05-18 20:35:49', '2020-05-18 21:37:35', '2020-05-18 21:37:35', 0),
-(25, 'd', 'd', '2020-05-18 20:37:23', '2020-05-18 21:32:36', '2020-05-18 21:32:36', 0),
-(26, 'd', 'd', '2020-05-18 21:38:27', '2020-05-18 21:38:29', '2020-05-18 21:38:29', 0),
-(27, 'd', 'd', '2020-05-18 21:38:54', '2020-05-18 21:39:48', '2020-05-18 21:39:48', 0),
-(28, 'ddsad', 'ddasdsa', '2020-05-18 21:38:59', '2020-05-18 21:39:00', '2020-05-18 21:39:00', 0),
-(29, 'dasd', 'dasdsa', '2020-05-18 21:39:39', '2020-05-18 21:40:51', '2020-05-18 21:40:51', 0),
-(30, 'dasddas', 'dasdsadas', '2020-05-18 21:39:41', '2020-05-18 21:39:49', '2020-05-18 21:39:49', 0),
-(31, 'dasddas2312', 'dasdsadas', '2020-05-18 21:39:43', '2020-05-18 21:59:19', '2020-05-18 21:59:19', 0),
-(32, 'dasddas2312', 'dasdsadas', '2020-05-18 21:39:43', '2020-05-18 21:39:50', '2020-05-18 21:39:50', 0),
-(33, 'dasddas2312', 'dasdsadas', '2020-05-18 21:39:44', '2020-05-18 21:59:21', '2020-05-18 21:59:21', 0),
-(34, 'dasddas2312', 'dasdsadas', '2020-05-18 21:39:44', '2020-05-18 22:00:47', '2020-05-18 22:00:47', 0),
-(35, 'dasddas2312', 'dasdsadas', '2020-05-18 21:39:44', '2020-05-18 22:24:05', '2020-05-18 22:24:05', 0),
-(36, 'dasddas2312', 'dasdsadas', '2020-05-18 21:39:45', '2020-05-18 22:26:05', '2020-05-18 22:26:05', 0),
-(37, 'melancia', 'batata', '2020-05-18 21:39:45', '2020-05-18 22:37:33', '2020-05-18 22:37:33', 0),
-(38, '2', 'd', '2020-05-18 21:42:14', '2020-05-18 21:42:20', '2020-05-18 21:42:20', 0),
-(39, 'd', 'd', '2020-05-18 22:34:17', '2020-05-18 22:37:28', '2020-05-18 22:37:28', 0),
 (40, 'd', 'd', '2020-05-18 22:34:17', '2020-05-18 22:37:29', '2020-05-18 22:37:29', 0),
 (41, 'DDDDDDD', 'dd', '2020-05-18 22:34:20', '2020-05-18 22:37:30', '2020-05-18 22:37:30', 0),
 (42, 'DDDDDDD', 'dd', '2020-05-18 22:34:21', '2020-05-18 22:37:31', '2020-05-18 22:37:31', 0),
@@ -288,26 +244,20 @@ CREATE TABLE `users_municipio` (
 --
 
 INSERT INTO `users_municipio` (`idUsers_municipio`, `idUser`, `idMunicipio`) VALUES
-(3, 6, 17),
-(4, 6, 6),
-(5, 6, 16),
-(6, 6, 13),
-(7, 6, 5),
-(8, 6, 7),
-(9, 8, 10),
-(10, 8, 9),
-(11, 8, 8),
-(12, 8, 12),
-(13, 8, 11),
-(24, 7, 50),
-(25, 7, 26),
-(26, 7, 23),
-(27, 7, 41),
-(28, 7, 34),
-(29, 7, 31),
-(30, 7, 35),
-(31, 7, 33),
-(32, 7, 36);
+(1, 6, 17),
+(2, 6, 6),
+(3, 6, 16),
+(4, 6, 13),
+(5, 6, 5),
+(6, 6, 7),
+(7, 8, 10),
+(8, 8, 9),
+(9, 8, 8),
+(10, 8, 12),
+(11, 8, 11),
+(12, 10, 1),
+(13, 10, 53),
+(14, 10, 29);
 
 --
 -- Indexes for dumped tables
@@ -317,7 +267,9 @@ INSERT INTO `users_municipio` (`idUsers_municipio`, `idUser`, `idMunicipio`) VAL
 -- Indexes for table `casos`
 --
 ALTER TABLE `casos`
-  ADD PRIMARY KEY (`idCaso`) USING BTREE;
+  ADD PRIMARY KEY (`idCaso`) USING BTREE,
+  ADD KEY `fk_casos` (`idMunicipio`),
+  ADD KEY `fk_casos2` (`idUsuario`);
 
 --
 -- Indexes for table `migrations`
@@ -359,7 +311,7 @@ ALTER TABLE `users_municipio`
 -- AUTO_INCREMENT for table `casos`
 --
 ALTER TABLE `casos`
-  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -371,7 +323,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `municipios`
 --
 ALTER TABLE `municipios`
-  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `noticias`
@@ -383,17 +335,24 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users_municipio`
 --
 ALTER TABLE `users_municipio`
-  MODIFY `idUsers_municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idUsers_municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `casos`
+--
+ALTER TABLE `casos`
+  ADD CONSTRAINT `fk_casos` FOREIGN KEY (`idMunicipio`) REFERENCES `municipios` (`idMunicipio`),
+  ADD CONSTRAINT `fk_casos2` FOREIGN KEY (`idUsuario`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `users_municipio`

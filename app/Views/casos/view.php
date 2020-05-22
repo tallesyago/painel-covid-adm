@@ -96,9 +96,20 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Casos</h1>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="modalCad()">
-                        Cadastrar caso
-                    </button>
+                    <div class="col-sm-3 text-right">
+                        Selecione o municipio
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <select class="form-control" id="municipio"></select>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                        em seguida clique para cadastrar
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" onclick="modalCad()">
+                            Cadastrar caso
+                        </button>
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered" style="width: 100%" id="tableCasos">
@@ -122,8 +133,6 @@
     </div>
     </div>
 
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -136,12 +145,30 @@
                 </div>
                 <div class="modal-body">
                     <form id="form" method="post">
-                        <input type="hidden" id="id" name="id">
-                        <input type="text" class="form-control" name="confirmados" id="confirmados" placeholder="confirmados">
-                        <input type="text" class="form-control" name="suspeitos" id="suspeitos" placeholder="suspeitos">
-                        <input type="text" class="form-control" name="descartados" id="descartados" placeholder="descartados">
-                        <input type="text" class="form-control" name="recuperados" id="recuperados" placeholder="recuperados">
-                        <input type="text" class="form-control" name="obitos" id="obitos" placeholder="obitos">
+                        <div class="form-group row">
+                            <input type="hidden" id="id" name="id">
+                            <input type="hidden" id="idMunicipio" name="idMunicipio" value="9">
+                            <div class="col-sm-6">
+                                <label>Confirmados </label>
+                                <input type="text" class="form-control" name="confirmados" id="confirmados" placeholder="confirmados">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Suspeitos </label>
+                                <input type="text" class="form-control" name="suspeitos" id="suspeitos" placeholder="suspeitos">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Descartados</label>
+                                <input type="text" class="form-control" name="descartados" id="descartados" placeholder="descartados">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Recuperados</label>
+                                <input type="text" class="form-control" name="recuperados" id="recuperados" placeholder="recuperados">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Obitos</label>
+                                <input type="text" class="form-control" name="obitos" id="obitos" placeholder="obitos">
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -159,8 +186,20 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.21/b-1.6.2/b-html5-1.6.2/b-print-1.6.2/cr-1.5.2/r-2.2.5/datatables.min.js"></script>
-
     <script>
+        $.ajax({
+            type: "get",
+            url: "../Ajax/municipios/getDados",
+            data: {},
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function(data) {
+                var selectbox = $('#municipio');
+                $.each(data, function(i, d) {
+                    selectbox.append('<option value="' + d.idMunicipio + '">' + d.nomeMunicipio + '</option>');
+                });
+            }
+        });
         var table;
         $(document).ready(function() {
             table = $('#tableCasos').DataTable({
@@ -249,8 +288,6 @@
 
             });
         });
-    </script>
-    <script>
         //evitar edições incompletas, reseta todos os campos
         $('#exampleModal').on('hidden.bs.modal', function(e) {
             $(this)
@@ -317,8 +354,10 @@
             $('#exampleModal').modal('show')
         }
 
-        function modalCad() {
-            $('#exampleModalLabel').text('Cadastrar caso');
+        function modalCad(municipio) {
+            $('#exampleModalLabel').text('Município selecionado: ' + $('#municipio option:selected').text());
+            //$('#idMunicipio').val($('#municipio option:selected').val());
+            $('#idMunicipio').val($('#municipio option:selected').val());
             $('#exampleModal').modal('show')
         }
     </script>

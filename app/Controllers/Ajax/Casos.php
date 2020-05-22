@@ -5,6 +5,7 @@ namespace App\Controllers\Ajax;
 use App\Models\CasosModel;
 use CodeIgniter\Controller;
 
+
 class Casos extends Controller
 {
     #http://localhost:8080/ajax/casos/getdados
@@ -13,7 +14,6 @@ class Casos extends Controller
         $model = new CasosModel();
         $model->select("idCaso, idMunicipio, confirmadosCaso, suspeitosCaso, obitosCaso, descartadosCaso, recuperadosCaso, created_at");
         $model->where("idUsuario", session()->get('id'));
-        
         $casos = $model->findAll();
         $i = 0;
         $data = array();
