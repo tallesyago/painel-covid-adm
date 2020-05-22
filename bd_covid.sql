@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2020 at 09:08 PM
+-- Generation Time: May 22, 2020 at 10:02 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -136,7 +136,12 @@ INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `codMunicipio`) VALUES
 (52, 'São Sebastião da Vargem Alegre', 0),
 (53, 'Miraí', 0),
 (54, 'Descoberto', 0),
-(55, 'Brás Pires', 0);
+(55, 'Brás Pires', 0),
+(56, 'Barbacena', 0),
+(57, 'Cataguases', 0),
+(58, 'Muriaé', 0),
+(59, 'Leopoldina', 0),
+(60, 'Viçosa', 0);
 
 -- --------------------------------------------------------
 
@@ -153,48 +158,6 @@ CREATE TABLE `noticias` (
   `deleted_at` datetime NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `noticias`
---
-
-INSERT INTO `noticias` (`idNoticia`, `tituloNoticia`, `conteudoNoticia`, `created_at`, `updated_at`, `deleted_at`, `idUsuario`) VALUES
-(40, 'd', 'd', '2020-05-18 22:34:17', '2020-05-18 22:37:29', '2020-05-18 22:37:29', 0),
-(41, 'DDDDDDD', 'dd', '2020-05-18 22:34:20', '2020-05-18 22:37:30', '2020-05-18 22:37:30', 0),
-(42, 'DDDDDDD', 'dd', '2020-05-18 22:34:21', '2020-05-18 22:37:31', '2020-05-18 22:37:31', 0),
-(43, 'potato', 'goiaba', '2020-05-18 22:36:54', '2020-05-18 22:37:31', '2020-05-18 22:37:31', 0),
-(44, 'potato', 'goiaba', '2020-05-18 22:36:54', '2020-05-18 22:37:32', '2020-05-18 22:37:32', 0),
-(45, 'eu sou foda', 'ddd', '2020-05-18 22:37:40', '2020-05-18 22:37:42', '2020-05-18 22:37:42', 0),
-(46, 'batata frita3', 'boa3', '2020-05-18 22:37:46', '2020-05-18 22:47:40', '2020-05-18 22:47:40', 0),
-(47, 'd', 'd', '2020-05-18 22:39:13', '2020-05-18 22:47:41', '2020-05-18 22:47:41', 0),
-(48, 'qq', 'qqq', '2020-05-18 22:39:15', '2020-05-18 22:47:43', '2020-05-18 22:47:43', 0),
-(49, 'ae', 'ae', '2020-05-18 22:39:45', '2020-05-18 22:47:45', '2020-05-18 22:47:45', 0),
-(50, 'd', 'd', '2020-05-18 22:39:48', '2020-05-18 22:47:54', '2020-05-18 22:47:54', 0),
-(51, 'kk\'k', 'k', '2020-05-18 22:46:56', '2020-05-18 22:47:51', '2020-05-18 22:47:51', 0),
-(52, 'popo', 'popo', '2020-05-18 22:47:03', '2020-05-18 22:47:50', '2020-05-18 22:47:50', 0),
-(53, 'alahu', 'akaaxaxa', '2020-05-18 22:47:08', '2020-05-18 22:47:49', '2020-05-18 22:47:49', 0),
-(54, 'koka', 'cola', '2020-05-18 22:47:30', '2020-05-18 22:47:47', '2020-05-18 22:47:47', 0),
-(55, 'ameixa', 'frita', '2020-05-18 22:48:01', '2020-05-18 23:45:19', '2020-05-18 23:45:19', 0),
-(56, 'limao', 'mornod', '2020-05-18 22:48:07', '2020-05-18 23:03:31', '2020-05-18 23:03:31', 0),
-(57, 'pastel', 'azedo', '2020-05-18 22:48:15', '2020-05-19 08:31:27', '2020-05-19 08:31:27', 0),
-(58, 'risole', 'franngo', '2020-05-18 22:48:40', '2020-05-18 22:48:40', '0000-00-00 00:00:00', 0),
-(59, 'd', 'd', '2020-05-18 22:53:54', '2020-05-18 23:03:36', '2020-05-18 23:03:36', 0),
-(60, 'd', 'd', '2020-05-18 22:57:02', '2020-05-18 23:03:34', '2020-05-18 23:03:34', 0),
-(61, 'caca', 'caca', '2020-05-18 22:57:41', '2020-05-18 22:57:41', '0000-00-00 00:00:00', 0),
-(62, 'poao', 'cocco', '2020-05-18 23:24:56', '2020-05-19 08:31:51', '0000-00-00 00:00:00', 0),
-(63, '', '', '2020-05-19 08:31:54', '2020-05-20 21:36:14', '2020-05-20 21:36:14', 0),
-(64, 'd', 'd', '2020-05-19 08:31:57', '2020-05-20 21:36:15', '2020-05-20 21:36:15', 0),
-(65, 'd', 'd', '2020-05-19 09:13:47', '2020-05-20 23:05:46', '2020-05-20 23:05:46', 0),
-(66, 'co', 'co', '2020-05-20 22:18:58', '2020-05-20 22:19:01', '2020-05-20 22:19:01', 0),
-(67, 'd', '<p><b>Eu sou o deus da galaxia</b></p><p><b><br></b></p><p><b><br></b></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td></tr></tbody></table><p><b><br></b></p>', '2020-05-20 23:18:27', '2020-05-20 23:33:46', '2020-05-20 23:33:46', 4),
-(68, 'xa', 'xa', '2020-05-20 23:19:06', '2020-05-20 23:19:06', '0000-00-00 00:00:00', 4),
-(69, 'da', 'de', '2020-05-20 23:27:16', '2020-05-20 23:27:16', '0000-00-00 00:00:00', 4),
-(70, 'aeeee', '<p><b>dddd</b></p>', '2020-05-20 23:30:01', '2020-05-20 23:30:01', '0000-00-00 00:00:00', 4),
-(71, 'teste de velocidade do mr potato x', '<p><b>dasdsaads</b></p><p><b><br></b></p><p><b><br></b></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td></tr></tbody></table><p><b><br></b></p>', '2020-05-20 23:30:24', '2020-05-20 23:30:39', '2020-05-20 23:30:39', 4),
-(72, '', '<p><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td></tr></tbody></table><p><br></p>', '2020-05-20 23:30:57', '2020-05-20 23:31:02', '2020-05-20 23:31:02', 4),
-(73, 'das', '<p><b>dasda</b></p><p><b><br></b></p><p><b><br></b></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td></tr></tbody></table><p><b><br></b></p>', '2020-05-20 23:33:52', '2020-05-20 23:34:06', '0000-00-00 00:00:00', 4),
-(74, 'teste', '<p><img src=\"https://img.ibxk.com.br/2020/05/21/21095628070078.jpg?w=1120&amp;h=420&amp;mode=crop&amp;scale=both\" style=\"width: 444px;\"><br></p>', '2020-05-21 10:51:08', '2020-05-21 10:51:29', '2020-05-21 10:51:29', 5),
-(75, '1', '<p>1</p>', '2020-05-21 20:02:05', '2020-05-21 20:02:05', '0000-00-00 00:00:00', 7);
 
 -- --------------------------------------------------------
 
@@ -257,7 +220,18 @@ INSERT INTO `users_municipio` (`idUsers_municipio`, `idUser`, `idMunicipio`) VAL
 (11, 8, 11),
 (12, 10, 1),
 (13, 10, 53),
-(14, 10, 29);
+(14, 10, 29),
+(36, 7, 50),
+(37, 7, 33),
+(38, 7, 26),
+(39, 7, 36),
+(40, 7, 31),
+(41, 7, 34),
+(42, 7, 23),
+(43, 7, 38),
+(44, 7, 41),
+(45, 10, 40),
+(47, 10, 44);
 
 --
 -- Indexes for dumped tables
@@ -311,7 +285,7 @@ ALTER TABLE `users_municipio`
 -- AUTO_INCREMENT for table `casos`
 --
 ALTER TABLE `casos`
-  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -323,7 +297,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `municipios`
 --
 ALTER TABLE `municipios`
-  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `noticias`
@@ -341,7 +315,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_municipio`
 --
 ALTER TABLE `users_municipio`
-  MODIFY `idUsers_municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `idUsers_municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Constraints for dumped tables
