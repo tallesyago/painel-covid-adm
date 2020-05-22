@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-
+use App\Models\MunicipiosModel;
 
 class Users extends BaseController
 {
@@ -12,7 +12,9 @@ class Users extends BaseController
 		$data = [];
 		helper(['form']);
 
+
 		if ($this->request->getMethod() == 'post') {
+			//let's do the validation here
 			$rules = [
 				'email' => 'required|min_length[6]|max_length[50]|valid_email',
 				'password' => 'required|min_length[8]|max_length[255]|validateUser[email,password]',
@@ -20,7 +22,7 @@ class Users extends BaseController
 
 			$errors = [
 				'password' => [
-					'validateUser' => 'Email ou senha incorreto!'
+					'validateUser' => 'Email or Password don\'t match'
 				]
 			];
 
@@ -33,11 +35,12 @@ class Users extends BaseController
 					->first();
 
 				$this->setUserSession($user);
-				return redirect()->to('/painel');
+				//$session->setFlashdata('success', 'Successful Registration');
+				return redirect()->to('painel');
 			}
 		}
 
-		echo view('login/login');
+		echo view('login/login', $data);
 	}
 
 	private function setUserSession($user)
@@ -45,7 +48,6 @@ class Users extends BaseController
 		$data = [
 			'id' => $user['id'],
 			'firstname' => $user['firstname'],
-			'lastname' => $user['lastname'],
 			'email' => $user['email'],
 			'isLoggedIn' => true,
 		];
@@ -63,7 +65,6 @@ class Users extends BaseController
 			//let's do the validation here
 			$rules = [
 				'firstname' => 'required|min_length[3]|max_length[20]',
-				'lastname' => 'required|min_length[3]|max_length[20]',
 				'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
 				'password' => 'required|min_length[8]|max_length[255]',
 				'password_confirm' => 'matches[password]',
@@ -76,22 +77,26 @@ class Users extends BaseController
 
 				$newData = [
 					'firstname' => $this->request->getVar('firstname'),
-					'lastname' => $this->request->getVar('lastname'),
 					'email' => $this->request->getVar('email'),
 					'password' => $this->request->getVar('password'),
 				];
 				$model->save($newData);
 				$session = session();
-				$session->setFlashdata('success', 'Cadastro realizado com sucesso!');
-				return redirect()->to('/painel');
+				$session->setFlashdata('success', 'Successful Registration');
+				return redirect()->to('/');
 			}
 		}
 
-		echo view('login/register');
+		$model = new MunicipiosModel();
+		$query = $model->query("Select * FROM municipios;");
+		$data = $query->getResult('array');
+		return view('login/register', $data);
 	}
+
 
 	public function profile()
 	{
+
 		$data = [];
 		helper(['form']);
 		$model = new UserModel();
@@ -100,7 +105,6 @@ class Users extends BaseController
 			//let's do the validation here
 			$rules = [
 				'firstname' => 'required|min_length[3]|max_length[20]',
-				'lastname' => 'required|min_length[3]|max_length[20]',
 			];
 
 			if ($this->request->getPost('password') != '') {
@@ -116,7 +120,6 @@ class Users extends BaseController
 				$newData = [
 					'id' => session()->get('id'),
 					'firstname' => $this->request->getPost('firstname'),
-					'lastname' => $this->request->getPost('lastname'),
 				];
 				if ($this->request->getPost('password') != '') {
 					$newData['password'] = $this->request->getPost('password');
@@ -124,7 +127,7 @@ class Users extends BaseController
 				$model->save($newData);
 
 				session()->setFlashdata('success', 'Successfuly Updated');
-				return redirect()->to('/perfil');
+				return redirect()->to('login/profile');
 			}
 		}
 
@@ -135,11 +138,7 @@ class Users extends BaseController
 	public function logout()
 	{
 		session()->destroy();
-		return redirect()->to('/painel');
-	}
-
-	public function home(){
-		echo view('welcome_message');
+		return redirect()->to('/');
 	}
 
 	//--------------------------------------------------------------------

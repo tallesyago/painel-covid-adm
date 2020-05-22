@@ -9,7 +9,6 @@ class Noticias extends Controller
 {
     public function index()
     {
-        $data = [];
         echo view('noticias/view');
     }
 

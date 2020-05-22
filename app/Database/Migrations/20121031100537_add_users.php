@@ -14,10 +14,6 @@ class AddUsers extends \CodeIgniter\Database\Migration {
                                 'type'           => 'VARCHAR',
                                 'constraint'     => '50',
                         ],
-                        'lastname'       => [
-                            'type'           => 'VARCHAR',
-                            'constraint'     => '50',
-                         ],
                          'email'       => [
                             'type'           => 'VARCHAR',
                             'constraint'     => '50',

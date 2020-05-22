@@ -109,16 +109,10 @@
             <?php endif; ?>
             <form class="" action="/perfil" method="post">
               <div class="row">
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-12">
                   <div class="form-group">
                     <label for="firstname">Primeiro nome</label>
                     <input type="text" class="form-control" name="firstname" id="firstname" value="<?= set_value('firstname', $user['firstname']) ?>">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="lastname">Último nome</label>
-                    <input type="text" class="form-control" name="lastname" id="lastname" value="<?= set_value('lastname', $user['lastname']) ?>">
                   </div>
                 </div>
                 <div class="col-12">

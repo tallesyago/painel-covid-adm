@@ -100,8 +100,6 @@
                         Cadastrar caso
                     </button>
                 </div>
-
-
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered" style="width: 100%" id="tableCasos">
                         <thead>
@@ -118,9 +116,10 @@
                         </thead>
                     </table>
                 </div>
-                <br /><br />
-            </main>
         </div>
+        <br /><br />
+        </main>
+    </div>
     </div>
 
 
@@ -167,8 +166,7 @@
             table = $('#tableCasos').DataTable({
                 "ajax": "../Ajax/Casos/getDados",
                 "processing": true,
-                columns: [
-                    {
+                columns: [{
                         data: "id",
                         visible: false
                     },
@@ -190,7 +188,7 @@
                     {
                         data: "obitos",
                     },
-                    
+
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
