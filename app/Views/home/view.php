@@ -11,16 +11,17 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-  <script type="text/javascript">
+  <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
       $('.search-box input[type="text"]').on("keyup input", function() {
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if (inputVal.length) {
+          //alert(inputVal);
           $.ajax({
             type: "GET",
-            url: "../Ajax/Pesquisa/getDados/" + inputVal,
+            url: encodeURI("../Ajax/Pesquisa/getDados/" + inputVal),
             success: function(result) {
               resultDropdown.html(result);
             }
