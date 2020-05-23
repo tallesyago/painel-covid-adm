@@ -11,9 +11,23 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/TypeWatch/3.0.1/jquery.typewatch.js"></script>
   <script type="text/javascript" charset="utf-8">
+    function delay(callback, ms) {
+      var timer = 0;
+      return function() {
+        var context = this,
+          args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+          callback.apply(context, args);
+        }, ms || 0);
+      };
+    }
+
+
     $(document).ready(function() {
-      $('.search-box input[type="text"]').on("keyup input", function() {
+      $('.search-box input[type="text"]').on("keyup input", delay(function(e){
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
@@ -24,12 +38,12 @@
             url: encodeURI("../Ajax/Pesquisa/getDados/" + inputVal),
             success: function(result) {
               resultDropdown.html(result);
-            }
+            },
           });
         } else {
           resultDropdown.empty();
         }
-      });
+      }, 500));
 
       // Set search input value on click of result item
       $(document).on("click", ".result p", function() {
@@ -126,7 +140,7 @@
         <h2 class="jumbotron-heading">Painel CoronaVírus</h2>
         <p class="lead text-muted"><i class="fas fa-map"></i> Escolha sua cidade:</p>
         <div class="md-form mt-0 animated flash slow search-box">
-          <input class="form-control " autocomplete="off" type="text" placeholder="Buscar">
+          <input class="form-control" id="pesquisa" autocomplete="off" type="text" placeholder="Buscar">
           <div class="result"></div>
         </div>
 

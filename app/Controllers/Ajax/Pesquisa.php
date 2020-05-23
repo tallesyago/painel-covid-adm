@@ -13,10 +13,8 @@ class Pesquisa extends Controller
         $model = new HomeModel();
         $model->select("nomeMunicipio, idMunicipio, codMunicipio");
         $model->like("nomeMunicipio", urldecode($term));
-        $model->limit(3);
         $pesquisas = $model->findAll();
 
-        echo $term;
         $i = 0;
         $data = array();
         foreach ($pesquisas as $pesquisa) {
