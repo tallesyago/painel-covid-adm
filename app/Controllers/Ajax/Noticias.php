@@ -8,10 +8,10 @@ use CodeIgniter\Controller;
 class Noticias extends Controller
 {
     #http://localhost:8080/ajax/noticias/getdados
-    public function getDados()
+    public function getDados()  
     {
         $model = new NoticiasModel();
-        $model->select("idNoticia, tituloNoticia, conteudoNoticia");
+        $model->select("idNoticia, tituloNoticia, conteudoNoticia", "created_at");
         $model->where("idUsuario", session()->get('id'));
 
         $noticias = $model->findAll();

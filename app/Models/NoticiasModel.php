@@ -5,7 +5,7 @@
 class NoticiasModel extends Model{
     protected $table = "noticias";
     protected $primaryKey = "idNoticia";
-    protected $allowedFields = ['idNoticia', 'idUsuario', 'tituloNoticia', 'conteudoNoticia'];
+    protected $allowedFields = ['created_at', 'idNoticia', 'idUsuario', 'tituloNoticia', 'conteudoNoticia'];
     protected $useTimestamps = true;
     protected $useSoftDeletes = true; 
 

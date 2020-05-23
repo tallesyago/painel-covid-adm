@@ -1,5 +1,5 @@
 --FALTA
-noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
+listar noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
 
 *zoom no mapa ao ir pra pagina de dados
 
@@ -20,11 +20,11 @@ listar municipio na listagem de /casos, adicionar na parte de edição também
 --BUGS
 *bug no utf8_encode na pesquisa(X)
 
-nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebra o esquema de link), passar so o id e faz select
+nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebra o esquema de link), passar so o id e faz select(X)
 
 *arrumar rota home pra usuarios logados
 
-*não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas)
+*não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas) (X)
 
 grafico pagina inicial com refresh desregulado(?)
 
@@ -34,17 +34,19 @@ grafico pagina inicial com refresh desregulado(?)
 
 
 --CORREÇÕES
-(x)limitar query do pesquias a 3 resultados
+limitar query do pesquisas a 3 resultados(x)
 
-(x)intervalo entre solicitações ajax na pesquisa(consumo de recursos)
+intervalo entre solicitações ajax na pesquisa(consumo de recursos)(x)
 
 
-(X)arrumar estilização da div de resultados pesquisa(clicar fora do link)
+arrumar estilização da div de resultados pesquisa(clicar fora do link)(X)
 
-(X)diminuir tempo de animação de loading home
+diminuir tempo de animação de loading home(X)
 
 Arrumar textos de impressão datatables
 
+
+-------------
 * - demonstra bug ou parte crucial/urgente
 
 

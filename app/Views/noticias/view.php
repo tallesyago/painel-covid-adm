@@ -124,7 +124,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"></h5>
@@ -177,7 +177,7 @@
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
-                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + encodeURI(row.conteudo) + '\');return false;">Editar</a>' +
+                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + escape(row.conteudo) + '\');return false;">Editar</a>' +
                                 ' <a href="" class="btn btn-outline-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a></div>';
                         },
                     }
@@ -266,7 +266,7 @@
             $('#id').val(id);
             $('#titulo').val(titulo);
             // alert(decodeURI(conteudo));
-            $("#conteudo").summernote("code", decodeURI(conteudo));
+            $("#conteudo").summernote("code", unescape(conteudo));
             
         }
 
@@ -296,6 +296,7 @@
         }
 
         function modalCad() {
+            $("#conteudo").summernote("code", "Digite o conteúdo da notícia aqui");
             $('#exampleModalLabel').text('Cadastrar notícia');
             $('#exampleModal').modal('show')
         }
