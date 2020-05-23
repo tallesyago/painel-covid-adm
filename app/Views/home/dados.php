@@ -61,7 +61,7 @@
         <div class="container">
             <section class="jumbotron text-center p-0">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="Index.php">Buscar</a></li>
+                    <li class="breadcrumb-item"><a href="/home">Buscar</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?= esc($casos['nomeMunicipio']) ?></li>
                 </ol>
                 <h2 class="jumbotron-heading">Painel CoronaVírus</h2>

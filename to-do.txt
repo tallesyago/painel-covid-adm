@@ -1,0 +1,13 @@
+noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
+
+zoom no mapa
+
+finalizar dashboard de dados
+
+
+nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebra o esquema de link), passar so o id e faz select
+
+
+bug no utf8_encode na pesquisa
+
+falta adicionar card recuperados
