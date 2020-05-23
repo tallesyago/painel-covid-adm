@@ -1,13 +1,24 @@
+--FALTA
 noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
 
-zoom no mapa
+zoom no mapa ao ir pra pagina de dados
 
-finalizar dashboard de dados
+adicionar o card de recuperados na listagem também
 
+parte de leitos
+
+
+
+
+
+
+
+
+--BUGS
+bug no utf8_encode na pesquisa
 
 nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebra o esquema de link), passar so o id e faz select
 
+arrumar rota home pra usuarios logados
 
-bug no utf8_encode na pesquisa
-
-falta adicionar card recuperados
+não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas)
