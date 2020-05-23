@@ -15,14 +15,14 @@ class Home extends BaseController
 	{
 
 		$model = new CasosModel(); 
-		echo "o id eh ". $id . "<br>";
+		// echo "o id eh ". $id . "<br>";
 
 		$query = $model->query("Select * FROM casos c, municipios m WHERE c.idMunicipio = '".$id."' AND c.idMunicipio = m.idMunicipio ORDER BY c.idCaso DESC LIMIT 1");
 		$data['casos'] = $query->getRowArray();
 
 
 		// $data['casos'] = 
-		var_dump($data['casos']);
+		// var_dump($data['casos']);
 		// var_dump($casos);
 
 		return view('/home/dados', $data);
