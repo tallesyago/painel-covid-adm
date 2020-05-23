@@ -43,6 +43,7 @@ grafico pagina inicial com refresh desregulado(?)
 
 (X)diminuir tempo de animação de loading home
 
+Arrumar textos de impressão datatables
 
 * - demonstra bug ou parte crucial/urgente
 

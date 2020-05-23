@@ -177,7 +177,7 @@
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
-                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + row.conteudo + '\');return false;">Editar</a>' +
+                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.titulo + '\' , \'' + encodeURI(row.conteudo) + '\');return false;">Editar</a>' +
                                 ' <a href="" class="btn btn-outline-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a></div>';
                         },
                     }
@@ -265,7 +265,9 @@
             modalEd();
             $('#id').val(id);
             $('#titulo').val(titulo);
-            $('#conteudo').val(conteudo);
+            // alert(decodeURI(conteudo));
+            $("#conteudo").summernote("code", decodeURI(conteudo));
+            
         }
 
         //deleção
