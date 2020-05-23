@@ -11,9 +11,9 @@ class Pesquisa extends Controller
     public function getDados($term = null)
     {
         $model = new HomeModel();
-        $model->select("nomeMunicipio, idMunicipio, codMunicipio");
+        // $model->select("nomeMunicipio, idMunicipio, codMunicipio");
         $model->like("nomeMunicipio", urldecode($term));
-        $pesquisas = $model->findAll();
+        $pesquisas = $model->findAll(3);
 
         $i = 0;
         $data = array();

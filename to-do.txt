@@ -34,9 +34,13 @@ tabela com refresh desregulado(?)
 --CORREÇÕES
 limitar query do pesquias a 3 resultados
 
-intervalo entre solicitações ajax na pesquisa(consumo de recursos)
+(x)intervalo entre solicitações ajax na pesquisa(consumo de recursos)
 
 * - demonstra bug ou parte crucial/urgente
+
+arrumar estilização da div de resultados pesquisa
+
+diminuir tempo de animação de loading home
 
 
 
