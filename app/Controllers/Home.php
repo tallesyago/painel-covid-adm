@@ -11,7 +11,7 @@ class Home extends BaseController
 	{
 		return view('/home/view');
 	}
-	public function dados($id = null)
+	public function municipio($id = null)
 	{
 
 		$model = new CasosModel(); 
