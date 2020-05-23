@@ -6,11 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" crossorigin="anonymous"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/regular.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
   <style>
     p {
       width: 100%;
@@ -104,10 +102,14 @@
     .result p:hover {
       background: #f2f2f2;
     }
+
+    a.disable-links {
+      pointer-events: none;
+    }
   </style>
 
 
-  <title>Covid-19</title>
+  <title>Painel COVID-MG</title>
 </head>
 
 <body>
@@ -116,15 +118,15 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            <h4 class="text-white">Sobre o projeto</h4>
+            <p class="text-muted"> Painel de Informações e Emissão de Alertas no Enfrentamento ao COVID-19 nas Microrregiões de Ubá e Juiz de Fora</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Menu</h4>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Cidades</a></li>
-              <li><a href="#" class="text-white">Doação</a></li>
-              <li><a href="#" class="text-white">Mapa</a></li>
+              <li><a href="#" class="text-white disable-links">Projetos</a></li>
+              <li><a href="#" class="text-white disable-links">Dicas</a></li>
+              <li><a href="#" class="text-white disable-links">Doação</a></li>
             </ul>
           </div>
         </div>
@@ -132,9 +134,9 @@
     </div>
     <div class="navbar navbar-dark bg-dark box-shadow">
       <div class="container d-flex justify-content-between">
-        <a href="Index.php" class="navbar-brand d-flex align-items-center">
+        <a href="/home" class="navbar-brand d-flex align-items-center">
           <strong>
-            <h6>COVID-19/MINAS GERAIS <i class="fas fa-virus"></i></h6>
+            <h6>COVID-19/MINAS GERAIS</h6>
           </strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">

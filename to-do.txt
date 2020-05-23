@@ -24,7 +24,7 @@ nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebr
 
 *arrumar rota home pra usuarios logados
 
-*não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas)
+*não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas) (X)
 
 grafico pagina inicial com refresh desregulado(?)
 
@@ -44,7 +44,11 @@ grafico pagina inicial com refresh desregulado(?)
 (X)diminuir tempo de animação de loading home
 
 
-* - demonstra bug ou parte crucial/urgente
+arrumar importações de js/css na pagina home/view e home/dados (o front end que enviaram está bem desconfigurado, com js no topo da pagina, ausencia de arquivos css usados no codigo[por exemplo: fontawesome])
 
+
+-------------------------------------------------------
+* - demonstra bug ou parte crucial/urgente
+(X) no início ou fim demonstra correção efetuada
 
 

@@ -19,8 +19,12 @@
             min-height: 600px;
             max-height: 800px
         }
+
+        a.disable-links {
+            pointer-events: none;
+        }
     </style>
-    <title>Covid-19</title>
+    <title>Painel COVID-MG</title>
 </head>
 
 <?php if (isset($casos)) { ?>
@@ -31,15 +35,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-7 py-4">
-                            <h4 class="text-white">About</h4>
-                            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                            <h4 class="text-white">Sobre o projeto</h4>
+                            <p class="text-muted"> Painel de Informações e Emissão de Alertas no Enfrentamento ao COVID-19 nas Microrregiões de Ubá e Juiz de Fora</p>
                         </div>
                         <div class="col-sm-4 offset-md-1 py-4">
                             <h4 class="text-white">Menu</h4>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="text-white">Cidades</a></li>
-                                <li><a href="#" class="text-white">Doação</a></li>
-                                <li><a href="#" class="text-white">Mapa</a></li>
+                                <li><a href="#" class="text-white disable-links">Projetos</a></li>
+                                <li><a href="#" class="text-white disable-links">Dicas</a></li>
+                                <li><a href="#" class="text-white disable-links">Doação</a></li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +51,7 @@
             </div>
             <div class="navbar navbar-dark bg-dark box-shadow">
                 <div class="container d-flex justify-content-between">
-                    <a href="#" class="navbar-brand d-flex align-items-center">
+                    <a href="/home" class="navbar-brand d-flex align-items-center">
                         <strong>
                             <h6>COVID-19/MINAS GERAIS</h6>
                         </strong>
