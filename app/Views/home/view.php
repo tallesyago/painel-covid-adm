@@ -11,6 +11,11 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
+  <style>
+    p {
+      width: 100%;
+    }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/TypeWatch/3.0.1/jquery.typewatch.js"></script>
   <script type="text/javascript" charset="utf-8">
     function delay(callback, ms) {
@@ -27,7 +32,7 @@
 
 
     $(document).ready(function() {
-      $('.search-box input[type="text"]').on("keyup input", delay(function(e){
+      $('.search-box input[type="text"]').on("keyup input", delay(function(e) {
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
@@ -47,6 +52,8 @@
 
       // Set search input value on click of result item
       $(document).on("click", ".result p", function() {
+        var url = $(event.target).find("a").prop("href"); // getting the clicked element with event target.
+        window.location = url;
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
         $(this).parent(".result").empty();
       });
@@ -70,10 +77,13 @@
 
     /* Formatting search box */
     .result {
-      position: absolute;
+      /* position: absolute; */
       z-index: 999;
       top: 100%;
+      width: 80%;
       left: 0;
+      background-color: white;
+      border-radius: 5px;
     }
 
     .search-box input[type="text"],

@@ -3,6 +3,8 @@ noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
 
 *zoom no mapa ao ir pra pagina de dados
 
+*listar dados não estáticos no mapa
+
 adicionar o card de recuperados na listagem também
 
 parte de leitos
@@ -24,7 +26,7 @@ nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebr
 
 *não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas)
 
-tabela com refresh desregulado(?)
+grafico pagina inicial com refresh desregulado(?)
 
 
 
@@ -32,15 +34,17 @@ tabela com refresh desregulado(?)
 
 
 --CORREÇÕES
-limitar query do pesquias a 3 resultados
+(x)limitar query do pesquias a 3 resultados
 
 (x)intervalo entre solicitações ajax na pesquisa(consumo de recursos)
 
-* - demonstra bug ou parte crucial/urgente
 
-arrumar estilização da div de resultados pesquisa
+arrumar estilização da div de resultados pesquisa(clicar fora do link)
 
 diminuir tempo de animação de loading home
+
+
+* - demonstra bug ou parte crucial/urgente
 
 
 

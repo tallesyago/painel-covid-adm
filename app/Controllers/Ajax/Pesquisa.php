@@ -19,7 +19,7 @@ class Pesquisa extends Controller
         $data = array();
         foreach ($pesquisas as $pesquisa) {
             if (!empty($pesquisas)) {
-                echo '<p><a href="/home/dados/'.$pesquisa['idMunicipio'].'">'.($pesquisa["nomeMunicipio"]).'</a></p>';
+                echo '<p><a style="text-decoration: none; color: black" href="/home/dados/'.$pesquisa['idMunicipio'].'">'.($pesquisa["nomeMunicipio"]).'</a></p>';
             } else {
                 echo "<p>Sem resultados</p>";
             }
