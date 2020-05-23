@@ -303,6 +303,7 @@
         $(document).ready(function() {
             $('#btn').click(function() {
                 var dados = $('#form').serializeArray();
+                alert(dados[0]['confirmados']);
                 $.ajax({
                     type: "POST",
                     url: "/casos/storeDt",

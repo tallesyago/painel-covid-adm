@@ -37,7 +37,7 @@ class Casos extends Controller
 
     public function deleteDt($id = null)
     {
-        $model = new CasosModel(0);
+        $model = new CasosModel();
         $model->delete($id);
     }
 }
