@@ -149,7 +149,7 @@
       <section class="jumbotron text-center ">
         <h2 class="jumbotron-heading">Painel CoronaVírus</h2>
         <p class="lead text-muted"><i class="fas fa-map"></i> Escolha sua cidade:</p>
-        <div class="md-form mt-0 animated flash slow search-box">
+        <div class="md-form mt-0 animated slow search-box">
           <input class="form-control" id="pesquisa" autocomplete="off" type="text" placeholder="Buscar">
           <div class="result"></div>
         </div>
@@ -157,7 +157,7 @@
       </section>
       <div class="row">
         <div class="col-md-4">
-          <div class="card animated bounceInUp slow delay-0s">
+          <div class="card animated bounceInUp fast">
             <div class="card-body" align="center">
               <img src="/assets/images/business%20(1).png" width="70" height="70" alt="">
               <h5 class="subtext mt-2">Projetos</h5>
@@ -167,7 +167,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card animated bounceInUp slow delay-1s">
+          <div class="card animated bounceInUp fast">
             <div class="card-body" align="center">
               <img src="/assets/images/dicas.png" width="70" height="70" alt="">
               <h5 class="subtext mt-2">Dicas Oficiais</h5>
@@ -177,7 +177,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card animated bounceInUp slow delay-2s">
+          <div class="card animated bounceInUp fast">
             <div class="card-body" align="center">
               <img src="/assets/images/caixa.png" width="70" height="70" alt="">
               <h5 class="subtext mt-2">Doação</h5>

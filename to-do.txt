@@ -39,9 +39,9 @@ grafico pagina inicial com refresh desregulado(?)
 (x)intervalo entre solicitações ajax na pesquisa(consumo de recursos)
 
 
-arrumar estilização da div de resultados pesquisa(clicar fora do link)
+(X)arrumar estilização da div de resultados pesquisa(clicar fora do link)
 
-diminuir tempo de animação de loading home
+(X)diminuir tempo de animação de loading home
 
 
 * - demonstra bug ou parte crucial/urgente
