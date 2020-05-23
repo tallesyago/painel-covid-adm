@@ -27,4 +27,16 @@ nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebr
 tabela com refresh desregulado(?)
 
 
+
+
+
+
+--CORREÇÕES
+limitar query do pesquias a 3 resultados
+
+
+
 * - demonstra bug ou parte crucial/urgente
+
+
+
