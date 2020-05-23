@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2020 at 10:02 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Tempo de geração: 23-Maio-2020 às 16:29
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bd_covid`
+-- Banco de dados: `bd_covid`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `casos`
+-- Estrutura da tabela `casos`
 --
 
 CREATE TABLE `casos` (
@@ -42,10 +41,23 @@ CREATE TABLE `casos` (
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `casos`
+--
+
+INSERT INTO `casos` (`idCaso`, `idMunicipio`, `suspeitosCaso`, `confirmadosCaso`, `descartadosCaso`, `obitosCaso`, `recuperadosCaso`, `created_at`, `updated_at`, `deleted_at`, `idUsuario`) VALUES
+(39, 50, 13, 12, 14, 16, 15, '2020-05-22 23:17:19', '2020-05-23 08:42:40', '2020-05-23 08:42:40', 7),
+(40, 9, 78, 77, 79, 818, 80, '2020-05-22 23:22:42', '2020-05-23 08:50:22', '2020-05-23 08:50:22', 7),
+(47, 50, 2, 1, 3, 5, 4, '2020-05-23 08:50:16', '2020-05-23 08:50:16', '0000-00-00 00:00:00', 7),
+(48, 23, 4, 3, 5, 7, 6, '2020-05-23 08:50:33', '2020-05-23 08:50:33', '0000-00-00 00:00:00', 7),
+(49, 23, 3, 23, 3, 3, 3, '2020-05-23 09:10:58', '2020-05-23 09:10:58', '0000-00-00 00:00:00', 7),
+(50, 31, 2, 1, 3, 5, 4, '2020-05-23 09:11:42', '2020-05-23 09:11:42', '0000-00-00 00:00:00', 7),
+(51, 38, 55, 55, 55, 55, 55, '2020-05-23 09:25:48', '2020-05-23 09:25:48', '0000-00-00 00:00:00', 7);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estrutura da tabela `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -59,7 +71,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migrations`
+-- Extraindo dados da tabela `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -68,7 +80,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `municipios`
+-- Estrutura da tabela `municipios`
 --
 
 CREATE TABLE `municipios` (
@@ -78,7 +90,7 @@ CREATE TABLE `municipios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `municipios`
+-- Extraindo dados da tabela `municipios`
 --
 
 INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `codMunicipio`) VALUES
@@ -116,7 +128,6 @@ INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `codMunicipio`) VALUES
 (32, 'Guarará', 0),
 (33, 'Bicas', 0),
 (34, 'Pequeri', 0),
-(35, 'Piau', 0),
 (36, 'Rio Novo', 0),
 (37, 'Rio Preto', 0),
 (38, 'Piau', 0),
@@ -146,7 +157,7 @@ INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `codMunicipio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noticias`
+-- Estrutura da tabela `noticias`
 --
 
 CREATE TABLE `noticias` (
@@ -159,10 +170,17 @@ CREATE TABLE `noticias` (
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `noticias`
+--
+
+INSERT INTO `noticias` (`idNoticia`, `tituloNoticia`, `conteudoNoticia`, `created_at`, `updated_at`, `deleted_at`, `idUsuario`) VALUES
+(76, 'teste', '<p>dadada</p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td><td><br></td></tr><tr><td><br></td><td><br></td><td><br></td></tr></tbody></table><p><br></p>', '2020-05-22 23:23:27', '2020-05-22 23:23:27', '0000-00-00 00:00:00', 7);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estrutura da tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -175,7 +193,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `email`, `password`, `created_at`, `updated_at`) VALUES
@@ -193,7 +211,7 @@ INSERT INTO `users` (`id`, `firstname`, `email`, `password`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_municipio`
+-- Estrutura da tabela `users_municipio`
 --
 
 CREATE TABLE `users_municipio` (
@@ -203,7 +221,7 @@ CREATE TABLE `users_municipio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users_municipio`
+-- Extraindo dados da tabela `users_municipio`
 --
 
 INSERT INTO `users_municipio` (`idUsers_municipio`, `idUser`, `idMunicipio`) VALUES
@@ -234,11 +252,11 @@ INSERT INTO `users_municipio` (`idUsers_municipio`, `idUser`, `idMunicipio`) VAL
 (47, 10, 44);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `casos`
+-- Índices para tabela `casos`
 --
 ALTER TABLE `casos`
   ADD PRIMARY KEY (`idCaso`) USING BTREE,
@@ -246,31 +264,31 @@ ALTER TABLE `casos`
   ADD KEY `fk_casos2` (`idUsuario`);
 
 --
--- Indexes for table `migrations`
+-- Índices para tabela `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `municipios`
+-- Índices para tabela `municipios`
 --
 ALTER TABLE `municipios`
   ADD PRIMARY KEY (`idMunicipio`);
 
 --
--- Indexes for table `noticias`
+-- Índices para tabela `noticias`
 --
 ALTER TABLE `noticias`
   ADD PRIMARY KEY (`idNoticia`);
 
 --
--- Indexes for table `users`
+-- Índices para tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users_municipio`
+-- Índices para tabela `users_municipio`
 --
 ALTER TABLE `users_municipio`
   ADD PRIMARY KEY (`idUsers_municipio`),
@@ -278,58 +296,58 @@ ALTER TABLE `users_municipio`
   ADD KEY `fk_users` (`idUser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `casos`
+-- AUTO_INCREMENT de tabela `casos`
 --
 ALTER TABLE `casos`
-  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT de tabela `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `municipios`
+-- AUTO_INCREMENT de tabela `municipios`
 --
 ALTER TABLE `municipios`
   MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT for table `noticias`
+-- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `users_municipio`
+-- AUTO_INCREMENT de tabela `users_municipio`
 --
 ALTER TABLE `users_municipio`
   MODIFY `idUsers_municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
--- Constraints for table `casos`
+-- Limitadores para a tabela `casos`
 --
 ALTER TABLE `casos`
   ADD CONSTRAINT `fk_casos` FOREIGN KEY (`idMunicipio`) REFERENCES `municipios` (`idMunicipio`),
   ADD CONSTRAINT `fk_casos2` FOREIGN KEY (`idUsuario`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `users_municipio`
+-- Limitadores para a tabela `users_municipio`
 --
 ALTER TABLE `users_municipio`
   ADD CONSTRAINT `fk_municipio` FOREIGN KEY (`idMunicipio`) REFERENCES `municipios` (`idMunicipio`),

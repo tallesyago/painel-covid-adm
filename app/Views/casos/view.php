@@ -236,7 +236,7 @@
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
-                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.confirmados + '\' , \'' + row.suspeitos + '\', \'' + row.descartados + '\' , \'' + row.obitos + '\' , \'' + row.recuperados + '\' , \'' + row.municipio + '\');return false;">Editar</a>' +
+                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.confirmados + '\' , \'' + row.suspeitos + '\', \'' + row.descartados + '\' , \'' + row.obitos + '\' , \'' + row.recuperados + '\' , \'' + row.municipio + '\', \'' + row.datax + '\');return false;">Editar</a>' +
                                 ' <a href="" class="btn btn-outline-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a></div>';
                         },
                     }
@@ -308,7 +308,7 @@
         $(document).ready(function() {
             $('#btn').click(function() {
                 var dados = $('#form').serializeArray();
-                alert(dados[0]['confirmados']);
+                // alert(dados[0]['confirmados']);
                 $.ajax({
                     type: "POST",
                     url: "/casos/storeDt",
@@ -325,15 +325,14 @@
         });
 
         //modal de edição
-        function editar(id, confirmados, suspeitos, descartados, obitos, recuperados, municipio) {
-            modalEd();
+        function editar(id, confirmados, suspeitos, descartados, obitos, recuperados, municipio, datax) {
+            modalEd(municipio, datax);
             $('#id').val(id);
             $('#confirmados').val(confirmados);
             $('#suspeitos').val(suspeitos);
             $('#obitos').val(obitos);
             $('#recuperados').val(recuperados);
             $('#descartados').val(descartados);
-            $('#municipio').val(municipio);
         }
 
         //deleção
@@ -356,8 +355,8 @@
             return " " + dia + "-" + mes + "-" + ano + " " + time;
         }
 
-        function modalEd() {
-            $('#exampleModalLabel').text('Editar relatório de casos de ' + $('#municipio option:selected').text());
+        function modalEd(municipio, data) {
+            $('#exampleModalLabel').text('Editar relatório de casos de ' + municipio + ' ' + data);
             $('#exampleModal').modal('show')
         }
 
