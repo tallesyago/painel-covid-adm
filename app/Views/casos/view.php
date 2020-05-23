@@ -117,6 +117,7 @@
                             <tr>
                                 <th>id</th>
                                 <th>data</th>
+                                <th>munícipio</th>
                                 <th>confirmados</th>
                                 <th>suspeitos</th>
                                 <th>descartados</th>
@@ -198,6 +199,7 @@
                 $.each(data, function(i, d) {
                     selectbox.append('<option value="' + d.idMunicipio + '">' + d.nomeMunicipio + '</option>');
                 });
+                selectbox.append('<option value="" selected disabled hidden>Clique aqui para selecionar</option>');
             }
         });
         var table;
@@ -211,6 +213,9 @@
                     },
                     {
                         data: "datax",
+                    },
+                    {
+                        data: "municipio"
                     },
                     {
                         data: "confirmados"
@@ -231,7 +236,7 @@
                     {
                         "mData": null,
                         "mRender": function(data, type, row) {
-                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.confirmados + '\' , \'' + row.suspeitos + '\', \'' + row.descartados + '\' , \'' + row.obitos + '\' , \'' + row.recuperados + '\');return false;">Editar</a>' +
+                            return '<div class="btn-group" role="group" aria-label="Basic example"><a href="" class="btn btn btn-outline-dark" onClick="editar(\'' + row.id + '\' , \'' + row.confirmados + '\' , \'' + row.suspeitos + '\', \'' + row.descartados + '\' , \'' + row.obitos + '\' , \'' + row.recuperados + '\' , \'' + row.municipio + '\');return false;">Editar</a>' +
                                 ' <a href="" class="btn btn-outline-danger" onClick="deletar(' + row.id + ');return false;">Excluir</a></div>';
                         },
                     }
@@ -320,7 +325,7 @@
         });
 
         //modal de edição
-        function editar(id, confirmados, suspeitos, descartados, obitos, recuperados) {
+        function editar(id, confirmados, suspeitos, descartados, obitos, recuperados, municipio) {
             modalEd();
             $('#id').val(id);
             $('#confirmados').val(confirmados);
@@ -328,6 +333,7 @@
             $('#obitos').val(obitos);
             $('#recuperados').val(recuperados);
             $('#descartados').val(descartados);
+            $('#municipio').val(municipio);
         }
 
         //deleção
@@ -351,15 +357,20 @@
         }
 
         function modalEd() {
-            $('#exampleModalLabel').text('Editar caso');
+            $('#exampleModalLabel').text('Editar relatório de casos de ' + $('#municipio option:selected').text());
             $('#exampleModal').modal('show')
         }
 
         function modalCad(municipio) {
-            $('#exampleModalLabel').text('Município selecionado: ' + $('#municipio option:selected').text());
-            //$('#idMunicipio').val($('#municipio option:selected').val());
-            $('#idMunicipio').val($('#municipio option:selected').val());
-            $('#exampleModal').modal('show')
+            if ($('#municipio option:selected').val() == "") {
+                alert("Por favor, antes de cadastrar selecione um município para cadastro de relatório de casos");
+            } else {
+                $('#exampleModalLabel').text('Município selecionado: ' + $('#municipio option:selected').text());
+                //$('#idMunicipio').val($('#municipio option:selected').val());
+                $('#idMunicipio').val($('#municipio option:selected').val());
+                $('#exampleModal').modal('show')
+            }
+
         }
     </script>
 </body>
