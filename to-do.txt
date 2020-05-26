@@ -1,52 +1,55 @@
 --FALTA
-listar noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
 
-*zoom no mapa ao ir pra pagina de dados
+listar noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas - Thiago
 
-*listar dados não estáticos no mapa
+Arrumar textos de impressão datatables - Thiago
 
-adicionar o card de recuperados na listagem também
+Grafico de casos na pagina dados - Thiago 
 
-parte de leitos
+Remodelar com o sistema novo - Thiago
 
-listar municipio na listagem de /casos, adicionar na parte de edição também
-
-botão cadastrar alerta na listagem de dados
+Revisar cache nas paginas - Thiago
 
 
 
+adicionar o card de recuperados na listagem também - Ariel
 
---BUGS
-*bug no utf8_encode na pesquisa(X)
+arrumar rota home pra usuarios logados - Ariel
 
-nao pegar o conteudo do editar de noticias direto do datatable (formatacao quebra o esquema de link), passar so o id e faz select(X)
+grafico pagina inicial com refresh desregulado - Ariel
 
-*arrumar rota home pra usuarios logados
+Botão de login no menu - Ariel
 
-*não mostrar tela de erro onde não tem $casos cadastrados (p.e bicas) (X)
+Pagina estatica de Projetos - Ariel
 
-grafico pagina inicial com refresh desregulado(?)
+Remover Texto Dicas Oficias(Só dicas), ja tinha uma pagina pronta - Ariel
 
+Página doação em desenvolvimento - Ariel
 
+Excluir pagina template - Ariel
 
-
-
-
---CORREÇÕES
-limitar query do pesquisas a 3 resultados(x)
-
-intervalo entre solicitações ajax na pesquisa(consumo de recursos)(x)
+botão cadastrar alerta na listagem de dados - Ariel
 
 
-arrumar estilização da div de resultados pesquisa(clicar fora do link)(X)
-
-diminuir tempo de animação de loading home(X)
-
-Arrumar textos de impressão datatables
 
 
--------------
-* - demonstra bug ou parte crucial/urgente
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

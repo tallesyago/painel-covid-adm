@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+    <meta http-equiv="expires" content="Mon, 26 Jul 1997 05:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <link rel="stylesheet" href="/assets/dist/leaflet-search.css" />
+
 
     <link rel="icon" href="/assets/images/virus.png">
     <style>
@@ -31,6 +32,9 @@
 <?php if (isset($casos)) { ?>
 
     <body>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v7.0&appId=204305290231388&autoLogAppEvents=1"></script>
+
         <header>
             <div class="collapse bg-dark" id="navbarHeader">
                 <div class="container">
@@ -160,6 +164,8 @@
                             <div class="card-body">
                                 <h5 class="subtext">Noticias</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">Atualize-se com infomações oficiais</h6>
+                                <!-- alterar as referencias da div pro campo da tabela municipio que contem o identificador da pagina -->
+                                <div class="fb-page" data-href="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>">Município de Rio Pomba - Prefeitura</a></blockquote></div>
                             </div>
                         </div>
                     </div>
@@ -257,49 +263,49 @@
                         };
                     },
                     onEachFeature: function(feature, marker) {
-                        marker.bindPopup('<p>Confirmados: <?=$casos['confirmadosCaso'] ?></p>'
-                        + '<p>Suspeitos: <?=$casos['suspeitosCaso'] ?></p>'
-                        + '<p>Descartados: <?=$casos['descartadosCaso'] ?></p>'
-                        + '<p>Obitos: <?=$casos['obitosCaso'] ?></p>'
-                        + '<p>Recuperados: <?=$casos['recuperadosCaso'] ?></p>');
+                        marker.bindPopup('<p>Confirmados: <?= $casos['confirmadosCaso'] ?></p>' +
+                            '<p>Suspeitos: <?= $casos['suspeitosCaso'] ?></p>' +
+                            '<p>Descartados: <?= $casos['descartadosCaso'] ?></p>' +
+                            '<p>Obitos: <?= $casos['obitosCaso'] ?></p>' +
+                            '<p>Recuperados: <?= $casos['recuperadosCaso'] ?></p>');
                     }
                 });
 
-                 map.addLayer(featuresLayer);
+                map.addLayer(featuresLayer);
 
-            //     var searchControl = new L.Control.Search({
-            //         layer: featuresLayer,
-            //         propertyName: 'name',
-            //         marker: false,
-            //         moveToLocation: function(latlng, title, map) {
-            //             //map.fitBounds( latlng.layer.getBounds() );
-            //             var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-            //             map.setView(latlng, zoom); // access the zoom
-            //         }
-            //     });
+                //     var searchControl = new L.Control.Search({
+                //         layer: featuresLayer,
+                //         propertyName: 'name',
+                //         marker: false,
+                //         moveToLocation: function(latlng, title, map) {
+                //             //map.fitBounds( latlng.layer.getBounds() );
+                //             var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+                //             map.setView(latlng, zoom); // access the zoom
+                //         }
+                //     });
 
-            //     searchControl.on('search:locationfound', function(e) {
+                //     searchControl.on('search:locationfound', function(e) {
 
-            //         //console.log('search:locationfound', );
+                //         //console.log('search:locationfound', );
 
-            //         //map.removeLayer(this._markerSearch)
+                //         //map.removeLayer(this._markerSearch)
 
-            //         e.layer.setStyle({
-            //             fillColor: '#3f0',
-            //             color: '#0f0'
-            //         });
-            //         if (e.layer._popup)
-            //             e.layer.openPopup();
+                //         e.layer.setStyle({
+                //             fillColor: '#3f0',
+                //             color: '#0f0'
+                //         });
+                //         if (e.layer._popup)
+                //             e.layer.openPopup();
 
-            //     }).on('search:collapsed', function(e) {
+                //     }).on('search:collapsed', function(e) {
 
-            //         featuresLayer.eachLayer(function(layer) { //restore feature color
-            //             featuresLayer.resetStyle(layer);
-            //         });
-            //     });
+                //         featuresLayer.eachLayer(function(layer) { //restore feature color
+                //             featuresLayer.resetStyle(layer);
+                //         });
+                //     });
 
-            //     map.addControl(searchControl); //inizialize search control
-             }
+                //     map.addControl(searchControl); //inizialize search control
+            }
         </script>
 
         <script type="text/javascript" src="/assets/dist/labs-common.js"></script>

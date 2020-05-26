@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Maio-2020 às 16:29
+-- Tempo de geração: 27-Maio-2020 às 01:35
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.5
 
@@ -52,7 +52,11 @@ INSERT INTO `casos` (`idCaso`, `idMunicipio`, `suspeitosCaso`, `confirmadosCaso`
 (48, 23, 4, 3, 5, 7, 6, '2020-05-23 08:50:33', '2020-05-23 08:50:33', '0000-00-00 00:00:00', 7),
 (49, 23, 3, 23, 3, 3, 3, '2020-05-23 09:10:58', '2020-05-23 09:10:58', '0000-00-00 00:00:00', 7),
 (50, 31, 2, 1, 3, 5, 4, '2020-05-23 09:11:42', '2020-05-23 09:11:42', '0000-00-00 00:00:00', 7),
-(51, 38, 55, 55, 55, 55, 55, '2020-05-23 09:25:48', '2020-05-23 09:25:48', '0000-00-00 00:00:00', 7);
+(51, 38, 55, 55, 55, 55, 55, '2020-05-23 09:25:48', '2020-05-23 09:25:48', '0000-00-00 00:00:00', 7),
+(52, 31, 77, 77, 77, 77, 77, '2020-05-26 10:50:17', '2020-05-26 10:50:17', '0000-00-00 00:00:00', 7),
+(53, 9, 14, 12, 15, 17, 16, '2020-05-26 12:00:37', '2020-05-26 12:00:37', '0000-00-00 00:00:00', 8),
+(54, 10, 8, 8, 8, 8, 8, '2020-05-26 12:24:55', '2020-05-26 14:54:34', '2020-05-26 14:54:34', 8),
+(55, 10, 9, 3, 26, 1, 0, '2020-05-26 14:53:32', '2020-05-26 14:53:32', '0000-00-00 00:00:00', 8);
 
 -- --------------------------------------------------------
 
@@ -86,73 +90,69 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 CREATE TABLE `municipios` (
   `idMunicipio` int(11) NOT NULL,
   `nomeMunicipio` varchar(150) NOT NULL,
-  `codMunicipio` int(11) NOT NULL
+  `facebookMunicipio` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `municipios`
 --
 
-INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `codMunicipio`) VALUES
-(1, 'Astolfo Dutra', 0),
-(2, 'São Geraldo\r\n', 0),
-(3, 'Dores do Turvo', 0),
-(4, 'Senador Firmino', 0),
-(5, 'Guidoval', 0),
-(6, 'Visconde do Rio Branco', 0),
-(7, 'Guiricema', 0),
-(8, 'Mercês', 0),
-(9, 'Piraúba', 0),
-(10, 'Rio Pomba', 0),
-(11, 'Tabuleiro', 0),
-(12, 'Silverânia', 0),
-(13, 'Rodeiro', 0),
-(14, 'Divinésia', 0),
-(15, 'Guarani', 0),
-(16, 'Tocantins', 0),
-(17, 'Ubá', 0),
-(18, 'Ewbank da Câmara', 0),
-(19, 'Belmiro Braga', 0),
-(20, 'Bias Fortes', 0),
-(21, 'Lima Duarte', 0),
-(22, 'Chácara', 0),
-(23, 'Coronel Pacheco', 0),
-(24, 'Oliveiras Fortes', 0),
-(25, 'Maripá de Minas', 0),
-(26, 'Matias Barbosa', 0),
-(27, 'Mar de Espanha', 0),
-(28, 'Paiva', 0),
-(29, 'Descoberto', 0),
-(30, 'Aracitaba', 0),
-(31, 'Goianá', 0),
-(32, 'Guarará', 0),
-(33, 'Bicas', 0),
-(34, 'Pequeri', 0),
-(36, 'Rio Novo', 0),
-(37, 'Rio Preto', 0),
-(38, 'Piau', 0),
-(39, 'Olaria', 0),
-(40, 'Pedro Teixeira', 0),
-(41, 'Simão Pereira', 0),
-(42, 'Senador Cortes', 0),
-(43, 'São João Nepomuceno', 0),
-(44, 'Santos Dumont', 0),
-(45, 'Santana do Deserto', 0),
-(46, 'Santa Rita do Jacutinga', 0),
-(47, 'Santa Rita do Ibitipoca', 0),
-(48, 'Rochedo de Minas', 0),
-(49, 'Santa Bárbara do Monte Verde', 0),
-(50, 'Juiz de Fora', 0),
-(51, 'Dona Eusébia', 0),
-(52, 'São Sebastião da Vargem Alegre', 0),
-(53, 'Miraí', 0),
-(54, 'Descoberto', 0),
-(55, 'Brás Pires', 0),
-(56, 'Barbacena', 0),
-(57, 'Cataguases', 0),
-(58, 'Muriaé', 0),
-(59, 'Leopoldina', 0),
-(60, 'Viçosa', 0);
+INSERT INTO `municipios` (`idMunicipio`, `nomeMunicipio`, `facebookMunicipio`) VALUES
+(1, 'Astolfo Dutra', 'PrefAstolfoDutra'),
+(2, 'São Geraldo\r\n', 'prefeitura.saogeraldo'),
+(3, 'Dores do Turvo', 'doresdoturvo'),
+(4, 'Senador Firmino', 'municipiosenadorfirmino'),
+(5, 'Guidoval', 'prefeituradeguidoval'),
+(6, 'Visconde do Rio Branco', 'prefeituravrbmg'),
+(7, 'Guiricema', 'guiricema'),
+(8, 'Mercês', 'prefeiturademerces'),
+(9, 'Piraúba', 'municipio.pirauba'),
+(10, 'Rio Pomba', 'riopomba'),
+(11, 'Tabuleiro', 'prefeituradetabuleiro'),
+(12, 'Silverânia', 'Prefeitura-Municipal-de-Silveirânia-2030149240557298'),
+(13, 'Rodeiro', 'prefeituraderodeiromg'),
+(14, 'Divinésia', 'prefeituraDivinesia'),
+(15, 'Guarani', 'Prefeitura-Municipal-de-Guarani-205479812800138'),
+(16, 'Tocantins', 'prefeituradetocantins'),
+(17, 'Ubá', 'PrefeituradeUba'),
+(18, 'Ewbank da Câmara', 'prefeituradeewbankdacamara'),
+(19, 'Belmiro Braga', 'prefeituradebelmirobraga'),
+(20, 'Bias Fortes', 'PrefeituradeBiasFortes'),
+(21, 'Lima Duarte', 'PrefeituraLD'),
+(22, 'Chácara', 'prefeituradechacaramg'),
+(23, 'Coronel Pacheco', 'pmcpoficial'),
+(24, 'Oliveiras Fortes', 'Prefeituramunicipaldeolveirafortes'),
+(25, 'Maripá de Minas', 'MaripaDeMinasmg'),
+(26, 'Matias Barbosa', 'Prefeituramunicipalmatiasbarbosa'),
+(27, 'Mar de Espanha', 'prefeiturademardeespanha'),
+(28, 'Paiva', 'prefeituradepaiva'),
+(29, 'Descoberto', 'prefeituradescoberto'),
+(30, 'Aracitaba', 'pmaadm20172020'),
+(31, 'Goianá', 'PrefeituraMunicipalDeGoiana'),
+(32, 'Guarará', 'PrefeituraMunicipalDeGuarara'),
+(33, 'Bicas', 'prefeituradebicasadm20172020'),
+(34, 'Pequeri', 'prefeiturapequerimg'),
+(36, 'Rio Novo', 'prefeituramunicipalderionovomg'),
+(37, 'Rio Preto', 'pmriopretominas'),
+(38, 'Piau', 'prefeituramunicipaldepiau'),
+(39, 'Olaria', 'PrefeituraOL'),
+(40, 'Pedro Teixeira', 'PrefPtx'),
+(41, 'Simão Pereira', 'prefeituradesimaopereira'),
+(42, 'Senador Cortes', 'prefeiturasenadorcortes'),
+(43, 'São João Nepomuceno', 'prefeiturasjnepomuceno'),
+(44, 'Santos Dumont', 'Prefeitura-Municipal-de-Santos-Dumont-561920750577953'),
+(45, 'Santana do Deserto', 'santanadodeserto'),
+(46, 'Santa Rita do Jacutinga', 'Prefeitura-Municipal-de-Santa-Rita-de-Jacutinga-877687295659117'),
+(47, 'Santa Rita do Ibitipoca', 'Informe-Covid-19-Santa-Rita-de-Ibitipoca-MG-100574188269392'),
+(48, 'Rochedo de Minas', 'PrefeituraMunicipalDeRochedoDeMinas'),
+(49, 'Santa Bárbara do Monte Verde', ''),
+(50, 'Juiz de Fora', 'JuizdeForaPJF'),
+(51, 'Brás Pires', 'braspiresoficial'),
+(56, 'Barbacena', 'BarbacenaGov'),
+(57, 'Cataguases', 'prefeituramunicipaldecataguasesmg'),
+(58, 'Muriaé', 'Prefeiturademuriae'),
+(59, 'Leopoldina', 'camaramunicipaldeleopoldina'),
+(60, 'Viçosa', 'prefsvicosa');
 
 -- --------------------------------------------------------
 
@@ -197,14 +197,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Ariel', 'arielgranatob@gmail.com', '$2y$10$zWMDtFC2YSPUvdN6VKOb5.gDClfI5ExzO.HjdvVzmjJXVvMRKyQaK', '2020-05-21 20:01:04', '2020-05-21 20:47:22'),
+(1, 'Ariel', 'arielgranatob@gmail.com', '$2y$10$CmQ.FQ2aiXGKfusZCT2OT.3SDVD0rBbnPq8WnaYUTOrttqYUminJ6', '2020-05-21 20:01:04', '2020-05-26 11:58:47'),
 (2, 'Bruno', 'brunojp178@gmail.com', '$2y$10$8bok.DbcS3rAWe2rlGWm4uy9skdgoV0NNSKVgsm3NmO31Xt3jAf7W', '2020-05-21 20:57:51', '0000-00-00 00:00:00'),
 (3, 'Misael', 'misaelg.freitas2000@gmail.com', '$2y$10$/pi2KLEStH2uvpIgHupzX..f4M1krcIs7gpVfXLIMaKHQ9uLa7KuK', '2020-05-21 20:58:22', '0000-00-00 00:00:00'),
-(4, 'Thiago', 'thiagomotax@gmail.com', '$2y$10$5xtKCWpYavchOwuqlHTJgeM.T6lJazF9X9jzyk8sXMsDucb8bw86m', '2020-05-20 21:35:07', '2020-05-20 23:05:40'),
+(4, 'Thiago', 'thiagomotax@gmail.com', '$2y$10$ER317rEK6H2pOZ.x3Sp5DeLZJF5o10QJYQMNa55udtC9awa5xAsQy', '2020-05-20 21:35:07', '2020-05-26 11:10:26'),
 (5, 'Talles', 'tallesyagofariacota@gmail.com', '$2y$10$osiLZfY5b5w0zkjNZcWQy.mbcrxPlrKcaJK4SEyiqIrT/SI46cqXS', '2020-05-21 20:43:14', '0000-00-00 00:00:00'),
 (6, 'Jesus', 'felipecandian95@gmail.com', '$2y$10$1xiSPWWYFTiIl.Pqnavf1uO1kilfl2q0wZICCzP8tMsfnmxMcoAiS', '2020-05-21 20:42:53', '0000-00-00 00:00:00'),
-(7, 'Gustavo', 'gustavo.teixeira@ifsudestemg.edu.br', '$2y$10$K1EhY17cWxHPgOpWL83M3OChA/scmMvRmy3zgE6oeYyGQRrOIPwZu', '2020-05-21 20:42:18', '0000-00-00 00:00:00'),
-(8, 'Wellington', 'wellington.moreira@ifsudestemg.edu.br', '$2y$10$u/ZTqM7ciZdL4m7h8k497OyRPec02XKpYqoI/8pSgqM9IgjRfSK1.', '2020-05-21 20:41:04', '0000-00-00 00:00:00'),
+(7, 'Gustavo', 'gustavo.teixeira@ifsudestemg.edu.br', '$2y$10$T6d0KfOnPKgedV2iKMItFeFk8zvSC4Cc004Txv3lLKoEgCIuue9M.', '2020-05-21 20:42:18', '2020-05-26 10:58:33'),
+(8, 'Wellington', 'wellington.moreira@ifsudestemg.edu.br', '$2y$10$n/UJjMivndkV4l2Xv6RRPOCmfWIHhKDnjV8UOCDBoDGXLVn7OP55u', '2020-05-21 20:41:04', '2020-05-26 12:04:44'),
 (9, 'Lucas Lattari', 'lucas.lattari@ifsudestemg.edu.br', '$2y$10$GTQ3aRV6.0/tDepKrrPVzeBrPt5gKgSPfC3LxK.LfVVK7h8Z8tUty', '2020-05-21 20:41:44', '0000-00-00 00:00:00'),
 (10, 'Flávio', 'flavio.freitas@ifsudestemg.edu.br', '$2y$10$t9MdHULs.4cAM5PLiwHTNO4xbjtCEnLfU.RtOLvhom5AuWTeGAQ9K', '2020-05-21 20:42:01', '0000-00-00 00:00:00');
 
@@ -237,19 +237,18 @@ INSERT INTO `users_municipio` (`idUsers_municipio`, `idUser`, `idMunicipio`) VAL
 (10, 8, 12),
 (11, 8, 11),
 (12, 10, 1),
-(13, 10, 53),
-(14, 10, 29),
-(36, 7, 50),
-(37, 7, 33),
-(38, 7, 26),
-(39, 7, 36),
-(40, 7, 31),
-(41, 7, 34),
-(42, 7, 23),
-(43, 7, 38),
-(44, 7, 41),
-(45, 10, 40),
-(47, 10, 44);
+(13, 10, 29),
+(14, 7, 50),
+(15, 7, 33),
+(16, 7, 26),
+(17, 7, 36),
+(18, 7, 31),
+(19, 7, 34),
+(20, 7, 23),
+(21, 7, 38),
+(22, 7, 41),
+(23, 10, 40),
+(24, 10, 44);
 
 --
 -- Índices para tabelas despejadas
@@ -303,7 +302,7 @@ ALTER TABLE `users_municipio`
 -- AUTO_INCREMENT de tabela `casos`
 --
 ALTER TABLE `casos`
-  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de tabela `migrations`
