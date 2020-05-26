@@ -238,7 +238,7 @@
                 console.log(data + "datae")
 
                 var map = L.map('map').setView([latitude, longitude], 9),
-                    osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                    osmUrl = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
                     osmAttribution = '';
 
                 var osm = L.TileLayer.boundaryCanvas(osmUrl, {
