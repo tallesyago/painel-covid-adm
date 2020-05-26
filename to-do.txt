@@ -15,8 +15,6 @@ listar municipio na listagem de /casos, adicionar na parte de edição também
 
 
 
-
-
 --BUGS
 *bug no utf8_encode na pesquisa(X)
 

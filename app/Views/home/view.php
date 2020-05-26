@@ -174,7 +174,7 @@
               <img src="/assets/images/dicas.png" width="70" height="70" alt="">
               <h5 class="subtext mt-2">Dicas Oficiais</h5>
               <h6 class="card-subtitle mb-2 text-muted">O que você precisa saber e fazer</h6>
-              <a href="dicas.php" type="button" class="btn btn-outline-dark btn-block">Ver Mais</a>
+              <a href="/home" type="button" class="btn btn-outline-dark btn-block">Ver Mais</a>
             </div>
           </div>
         </div>
