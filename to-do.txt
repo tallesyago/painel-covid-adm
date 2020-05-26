@@ -1,16 +1,15 @@
 --FALTA
 listar noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas
 
-*zoom no mapa ao ir pra pagina de dados
+*zoom no mapa ao ir pra pagina de dados(x)
 
-*listar dados não estáticos no mapa
+*listar dados não estáticos no mapa(x)
 
 adicionar o card de recuperados na listagem também
 
 parte de leitos
 
 listar municipio na listagem de /casos, adicionar na parte de edição também
-
 
 
 

@@ -224,21 +224,20 @@
                                 console.log(data);
                                 geojson = data['features']['0']['geometry'];
                                 coordinate = geojson['coordinates'][0][0];
-                                console.log(coordinate)
 
-                                test();
-                                console.log(geojson);
+                                test(parseFloat(coordinate[1]), parseFloat(coordinate[0]));
+                                console.log(parseFloat(coordinate[0]), parseFloat(coordinate[1]));
                             })
                     }
                 );
                 // setTimeout(function(){ alert("Hello"); }, 3000);
             });
 
-            function test() {
+            function test(latitude, longitude) {
                 var data = geojson;
                 console.log(data + "datae")
 
-                var map = L.map('map').setView([-22, -44], 5),
+                var map = L.map('map').setView([latitude, longitude], 9),
                     osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                     osmAttribution = '';
 
@@ -253,49 +252,53 @@
                 var featuresLayer = new L.GeoJSON(data, {
                     style: function(feature) {
                         return {
-                            color: feature.properties.color
+                            color: '#FF0000'
                         };
                     },
                     onEachFeature: function(feature, marker) {
-                        marker.bindPopup('jf');
+                        marker.bindPopup('<p>Confirmados: <?=$casos['confirmadosCaso'] ?></p>'
+                        + '<p>Suspeitos: <?=$casos['suspeitosCaso'] ?></p>'
+                        + '<p>Descartados: <?=$casos['descartadosCaso'] ?></p>'
+                        + '<p>Obitos: <?=$casos['obitosCaso'] ?></p>'
+                        + '<p>Recuperados: <?=$casos['recuperadosCaso'] ?></p>');
                     }
                 });
 
-                map.addLayer(featuresLayer);
+                 map.addLayer(featuresLayer);
 
-                var searchControl = new L.Control.Search({
-                    layer: featuresLayer,
-                    propertyName: 'name',
-                    marker: false,
-                    moveToLocation: function(latlng, title, map) {
-                        //map.fitBounds( latlng.layer.getBounds() );
-                        var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-                        map.setView(latlng, zoom); // access the zoom
-                    }
-                });
+            //     var searchControl = new L.Control.Search({
+            //         layer: featuresLayer,
+            //         propertyName: 'name',
+            //         marker: false,
+            //         moveToLocation: function(latlng, title, map) {
+            //             //map.fitBounds( latlng.layer.getBounds() );
+            //             var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+            //             map.setView(latlng, zoom); // access the zoom
+            //         }
+            //     });
 
-                searchControl.on('search:locationfound', function(e) {
+            //     searchControl.on('search:locationfound', function(e) {
 
-                    //console.log('search:locationfound', );
+            //         //console.log('search:locationfound', );
 
-                    //map.removeLayer(this._markerSearch)
+            //         //map.removeLayer(this._markerSearch)
 
-                    e.layer.setStyle({
-                        fillColor: '#3f0',
-                        color: '#0f0'
-                    });
-                    if (e.layer._popup)
-                        e.layer.openPopup();
+            //         e.layer.setStyle({
+            //             fillColor: '#3f0',
+            //             color: '#0f0'
+            //         });
+            //         if (e.layer._popup)
+            //             e.layer.openPopup();
 
-                }).on('search:collapsed', function(e) {
+            //     }).on('search:collapsed', function(e) {
 
-                    featuresLayer.eachLayer(function(layer) { //restore feature color
-                        featuresLayer.resetStyle(layer);
-                    });
-                });
+            //         featuresLayer.eachLayer(function(layer) { //restore feature color
+            //             featuresLayer.resetStyle(layer);
+            //         });
+            //     });
 
-                map.addControl(searchControl); //inizialize search control
-            }
+            //     map.addControl(searchControl); //inizialize search control
+             }
         </script>
 
         <script type="text/javascript" src="/assets/dist/labs-common.js"></script>
