@@ -88,7 +88,7 @@ class Users extends BaseController
 		}
 
 		$model = new MunicipiosModel();
-		$query = $model->query("Select * FROM municipios;");
+		$query = $model->query("Select * FROM municipios ORDER BY nomeMunicipio");
 		$data = $query->getResult('array');
 		echo '<select class="form-control" id="municipio">';
               foreach ($data as $row) {
@@ -132,7 +132,7 @@ class Users extends BaseController
 				$model->save($newData);
 
 				session()->setFlashdata('success', 'Successfuly Updated');
-				return redirect()->to('login/profile');
+				return redirect()->to('perfil');
 			}
 		}
 
