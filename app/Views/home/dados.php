@@ -219,40 +219,43 @@
                             <div class="card-body">
                                 <h5 class="subtext">Gráficos</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">Acompanhe a evolução de casos em seu munícipio</h6>
+
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Confirmados</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="confirmados-tab" data-toggle="tab" href="#confirmados" role="tab" aria-controls="confirmados" aria-selected="true">Confirmados</a>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">Suspeitos</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="suspeitos-tab" data-toggle="tab" href="#suspeitos" role="tab" aria-controls="suspeitos" aria-selected="false">Suspeitos</a>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="contact" aria-selected="false">Descertados</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="descartados-tab" data-toggle="tab" href="#descartados" role="tab" aria-controls="descartados" aria-selected="false">Descartados</a>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu3" role="tab" aria-controls="contact" aria-selected="false">Óbitos</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="recuperados-tab" data-toggle="tab" href="#recuperados" role="tab" aria-controls="recuperados" aria-selected="false">Recuperados</a>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu3" role="tab" aria-controls="contact" aria-selected="false">Recuperados</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="obitos-tab" data-toggle="tab" href="#obitos" role="tab" aria-controls="obitos" aria-selected="false">Óbitos</a>
                                     </li>
                                 </ul>
 
-                                <div class="tab-content">
-                                    <div id="home" class="tab-pane fade in active">
-                                        <h3>HOME</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active chart-container" style="position: relative;" id="confirmados" role="tabpanel" aria-labelledby="confirmados    -tab">
+                                        <canvas id="chartConfirmados" width="400" height="400"></canvas>
                                     </div>
-                                    <div id="menu1" class="tab-pane fade">
-                                        <canvas id="myChart" width="400" height="400"></canvas>
+                                    <div class="tab-pane fade" id="suspeitos" role="tabpanel" aria-labelledby="suspeitos-tab">
+                                        <canvas id="chartSuspeitos" width="400" height="400"></canvas>
+
                                     </div>
-                                    <div id="menu2" class="tab-pane fade">
-                                        <h3>Menu 2</h3>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <div class="tab-pane fade" id="descartados" role="tabpanel" aria-labelledby="descartados-tab">
+                                        <canvas id="chartDescartados" width="400" height="400"></canvas>
                                     </div>
-                                    <div id="menu3" class="tab-pane fade">
-                                        <h3>Menu 3</h3>
-                                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    <div class="tab-pane fade" id="recuperados" role="tabpanel" aria-labelledby="recuperados-tab">
+                                        <canvas id="chartRecuperados" width="400" height="400"></canvas>
                                     </div>
+                                    <div class="tab-pane fade" id="obitos" role="tabpanel" aria-labelledby="obitos-tab">
+                                        <canvas id="chartObitos" width="400" height="400"></canvas>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -311,7 +314,12 @@
         <script>
             $(document).ready(function() {
                 let dataCaso = [];
-                let quantidadeCaso = [];
+                let confirmados = [];
+                let suspeitos = [];
+                let descartados = [];
+                let recuperados = [];
+                let obitos = [];
+
                 let id = <?php echo $casos['idMunicipio']; ?>;
                 // alert('o id e ' + id);
                 $.ajax({
@@ -321,20 +329,84 @@
                     success: function(data) {
                         for (var key in data) {
                             dataCaso.push(data[key].datax)
-                            quantidadeCaso.push(data[key].confirmados)
+                            confirmados.push(data[key].confirmados)
+                            suspeitos.push(data[key].suspeitos)
+                            descartados.push(data[key].descartados)
+                            recuperados.push(data[key].recuperados)
+                            obitos.push(data[key].obitos)
                         }
-                        let chartdata = {
+
+                        // grafico confirmados
+                        let confirmadosData = {
                             labels: [...dataCaso],
                             datasets: [{
-                                label: 'Casos',
-                                data: [...quantidadeCaso]
+                                label: 'Casos confirmados',
+                                data: [...confirmados]
                             }]
                         };
-                        let ctx = $("#myChart");
-                        let barGraph = new Chart(ctx, {
+                        let ctc = $("#chartConfirmados");
+                        let chartConfirmados = new Chart(ctc, {
                             type: 'line',
-                            data: chartdata
+                            data: confirmadosData
                         });
+
+                        // grafico suspeitos
+                        let suspeitosData = {
+                            labels: [...dataCaso],
+                            datasets: [{
+                                label: 'Casos suspeitos',
+                                data: [...suspeitos]
+                            }]
+                        };
+                        let cts = $("#chartSuspeitos");
+                        let chartSuspeitos = new Chart(cts, {
+                            type: 'line',
+                            data: suspeitosData
+                        });
+
+                        // grafico descartados
+                        let descartadosData = {
+                            labels: [...dataCaso],
+                            datasets: [{
+                                label: 'Casos descartados',
+                                data: [...descartados]
+                            }]
+                        };
+                        let ctd = $("#chartDescartados");
+                        let chartDescartados = new Chart(ctd, {
+                            type: 'line',
+                            data: descartadosData
+                        });
+
+                        // grafico obitos
+                        let obitosData = {
+                            labels: [...dataCaso],
+                            datasets: [{
+                                label: 'Casos óbitos',
+                                data: [...obitos]
+                            }]
+                        };
+                        let cto = $("#chartObitos");
+                        let chartObitos = new Chart(cto, {
+                            type: 'line',
+                            data: obitosData
+                        });
+
+                        // grafico recuperados
+                        let recuperadosData = {
+                            labels: [...dataCaso],
+                            datasets: [{
+                                label: 'Casos recuperados',
+                                data: [...recuperados]
+                            }]
+                        };
+                        let ctr = $("#chartRecuperados");
+                        let chartRecuperados = new Chart(ctr, {
+                            type: 'line',
+                            data: recuperadosData
+                        });
+
+                        
                     }
                 });
             });
