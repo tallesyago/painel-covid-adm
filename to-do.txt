@@ -1,6 +1,6 @@
 --FALTA
 
-listar noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas - Thiago
+listar noticias da cidade baseada em uma rede social (fb, ig, pref) ou cadastradas - Thiago (X)
 
 Arrumar textos de impressão datatables - Thiago
 
