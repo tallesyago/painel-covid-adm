@@ -10,8 +10,53 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
-    <link rel="stylesheet" href="/assets/dist/leaflet-search.css" />
     <link rel="icon" href="/assets/images/virus.png">
+
+    <!-- graficos -->
+    <style>
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 360px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
     <title>Painel COVID-MG</title>
 
     <style>
@@ -84,7 +129,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor1"><?php if (isset($casos['suspeitosCaso'])) echo $casos['suspeitosCaso'];
-                                                            else echo '0'; ?></h3>
+                                                                else echo '0'; ?></h3>
                                         <p class="subtext">Casos Suspeitos</p>
                                     </div>
                                     <div class="col">
@@ -101,7 +146,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor2"><?php if (isset($casos['confirmadosCaso'])) echo $casos['confirmadosCaso'];
-                                                            else echo '0'; ?></h3>
+                                                                else echo '0'; ?></h3>
                                         <p class="subtext">Confirmados</p>
                                     </div>
                                     <div class="col">
@@ -118,7 +163,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor3"><?php if (isset($casos['descartadosCaso'])) echo $casos['descartadosCaso'];
-                                                            else echo '0'; ?></h3>
+                                                                else echo '0'; ?></h3>
                                         <p class="subtext">Casos Descartados</p>
                                     </div>
                                     <div class="col">
@@ -135,7 +180,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor4"><?php if (isset($casos['obitosCaso'])) echo $casos['obitosCaso'];
-                                                            else echo '0'; ?></h3>
+                                                                else echo '0'; ?></h3>
                                         <p class="subtext">Casos de Óbitos</p>
                                     </div>
                                     <div class="col">
@@ -198,8 +243,7 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                     <div id="menu1" class="tab-pane fade">
-                                        <h3>Menu 1</h3>
-                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <canvas id="myChart" width="400" height="400"></canvas>
                                     </div>
                                     <div id="menu2" class="tab-pane fade">
                                         <h3>Menu 2</h3>
@@ -256,8 +300,45 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
+        <!-- graficos -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+        <script>
+
+        </script>
+        <!-- graficos -->
+        <script>
+            $(document).ready(function() {
+                let dataCaso = [];
+                let quantidadeCaso = [];
+                let id = <?php echo $casos['idMunicipio']; ?>;
+                // alert('o id e ' + id);
+                $.ajax({
+                    url: "/Ajax/Graficos/getDados/" + id, //filtrar por municipio selecionado
+                    method: "GET",
+                    dataType: 'JSON',
+                    success: function(data) {
+                        for (var key in data) {
+                            dataCaso.push(data[key].datax)
+                            quantidadeCaso.push(data[key].confirmados)
+                        }
+                        let chartdata = {
+                            labels: [...dataCaso],
+                            datasets: [{
+                                label: 'Casos',
+                                data: [...quantidadeCaso]
+                            }]
+                        };
+                        let ctx = $("#myChart");
+                        let barGraph = new Chart(ctx, {
+                            type: 'line',
+                            data: chartdata
+                        });
+                    }
+                });
+            });
+        </script>
 
         <script>
             var geojson;
@@ -289,7 +370,7 @@
 
             function test(latitude, longitude) {
                 var data = geojson;
-                console.log(data + "datae")
+                // console.log(data + "datae")
 
                 var map = L.map('map').setView([latitude, longitude], 9),
                     osmUrl = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
@@ -319,39 +400,6 @@
                 });
 
                 map.addLayer(featuresLayer);
-
-                //     var searchControl = new L.Control.Search({
-                //         layer: featuresLayer,
-                //         propertyName: 'name',
-                //         marker: false,
-                //         moveToLocation: function(latlng, title, map) {
-                //             //map.fitBounds( latlng.layer.getBounds() );
-                //             var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-                //             map.setView(latlng, zoom); // access the zoom
-                //         }
-                //     });
-
-                //     searchControl.on('search:locationfound', function(e) {
-
-                //         //console.log('search:locationfound', );
-
-                //         //map.removeLayer(this._markerSearch)
-
-                //         e.layer.setStyle({
-                //             fillColor: '#3f0',
-                //             color: '#0f0'
-                //         });
-                //         if (e.layer._popup)
-                //             e.layer.openPopup();
-
-                //     }).on('search:collapsed', function(e) {
-
-                //         featuresLayer.eachLayer(function(layer) { //restore feature color
-                //             featuresLayer.resetStyle(layer);
-                //         });
-                //     });
-
-                //     map.addControl(searchControl); //inizialize search control
             }
         </script>
 
