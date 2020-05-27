@@ -8,7 +8,7 @@
     <meta http-equiv="expires" content="Mon, 26 Jul 1997 05:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
@@ -104,7 +104,7 @@
                                     <div class="col">
                                         <h3 class="cor2"><?php if (isset($casos['confirmadosCaso'])) echo $casos['confirmadosCaso'];
                                                                 else echo '0'; ?></h3>
-                                        <p class="subtext">Casos Confirmados</p>
+                                        <p class="subtext">Confirmados</p>
                                     </div>
                                     <div class="col">
                                         <img class="img" src="/assets/images/pesquisa.png" width="70" height="70" align="right" alt="">
@@ -154,7 +154,7 @@
                         <div class="card animated bounceInUp slow delay-1s">
                             <div class="card-body">
                                 <h5 class="subtext">Mapa</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Encontre as mais próximas de você</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Visualize diversas informações sobre seu município no mapa interativo</h6>
                                 <div id="map"></div>
                             </div>
                         </div>
@@ -163,9 +163,55 @@
                         <div class="card animated bounceInUp slow delay-1s">
                             <div class="card-body">
                                 <h5 class="subtext">Noticias</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Atualize-se com infomações oficiais</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Atualize-se com infomações oficias</h6>
                                 <!-- alterar as referencias da div pro campo da tabela municipio que contem o identificador da pagina -->
-                                <div class="fb-page" data-href="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>">Município de Rio Pomba - Prefeitura</a></blockquote></div>
+                                <div class="fb-page" data-href="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>" data-tabs="timeline" data-width="500" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false">
+                                    <blockquote cite="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/<?= $casos['facebookMunicipio'] ?>">Município de Rio Pomba - Prefeitura</a></blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card animated bounceInUp slow delay-1s">
+                            <div class="card-body">
+                                <h5 class="subtext">Gráficos</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Acompanhe a evolução de casos em seu munícipio</h6>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Confirmados</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">Suspeitos</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="contact" aria-selected="false">Descertados</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu3" role="tab" aria-controls="contact" aria-selected="false">Óbitos</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#menu3" role="tab" aria-controls="contact" aria-selected="false">Recuperados</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane fade in active">
+                                        <h3>HOME</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div id="menu1" class="tab-pane fade">
+                                        <h3>Menu 1</h3>
+                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                    <div id="menu2" class="tab-pane fade">
+                                        <h3>Menu 2</h3>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    </div>
+                                    <div id="menu3" class="tab-pane fade">
+                                        <h3>Menu 3</h3>
+                                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -209,8 +255,11 @@
         <script src="/assets/dist/BoundaryCanvas.js"></script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 
         <script>
             var geojson;
