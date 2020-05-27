@@ -21,6 +21,7 @@
       -ms-user-select: none;
       user-select: none;
     }
+
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -30,6 +31,7 @@
   <!-- Custom styles for this template -->
   <link href="../assets/dashboard.css" rel="stylesheet">
 </head>
+
 <body>
   <!-- header -->
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -84,18 +86,14 @@
       </nav>
       <!-- conteudo -->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <h1 class="h2">Gráfico de Casos Confirmados em Rio Pomba - MG</h1>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2">Gráfico de Casos Confirmados em Rio Pomba - MG</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-              <button class="btn btn-sm btn-outline-secondary">Exportar em PDF</button>
-            </div>
-          </div>
+          <canvas class="my-4" id="myChart" height="110"></canvas>
         </div>
-        <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+
     </div>
   </div>
-  
+
   <script src="../assets/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
   <script src="../assets/dashboard.js"></script>
@@ -108,7 +106,7 @@
       data: {
         labels: ["04/05", "06/05", "09/05", "10/05", "13/05", "17/05", "23/05"],
         datasets: [{
-          data: [0,1,3,5,9,15,24],
+          data: [0, 1, 3, 5, 9, 15, 24],
           lineTension: 0,
           backgroundColor: 'transparent',
           borderColor: '#007bff',
@@ -131,4 +129,5 @@
     });
   </script>
 </body>
+
 </html>

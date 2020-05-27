@@ -39,9 +39,6 @@
               <div class="col-12 col-sm-4">
                 <button type="submit" class="btn btn-primary">Entrar</button>
               </div>
-              <div class="col-12 col-sm-8 text-right">
-                <a href="/registro">Criar uma nova conta</a>
-              </div>
             </div>
           </form>
         </div>

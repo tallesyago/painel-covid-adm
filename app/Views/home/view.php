@@ -2,7 +2,6 @@
 <html lang="pt-br">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" crossorigin="anonymous"></script>
@@ -119,14 +118,15 @@
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">Sobre o projeto</h4>
-            <p class="text-muted"> Painel de Informações e Emissão de Alertas no Enfrentamento ao COVID-19 nas Microrregiões de Ubá e Juiz de Fora</p>
+            <p class="text-muted">Painel de Informações e Emissão de Alertas no Enfrentamento ao COVID-19 nas Microrregiões de Ubá e Juiz de Fora</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Menu</h4>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white disable-links">Projetos</a></li>
-              <li><a href="#" class="text-white disable-links">Dicas</a></li>
-              <li><a href="#" class="text-white disable-links">Doação</a></li>
+              <li><a href="home/projetos" class="text-white">Projetos</a></li>
+              <li><a href="home/dicas" class="text-white">Dicas</a></li>
+              <li><a href="home/doacao" class="text-white">Doação</a></li>
+              <li><a href="home/login" class="text-white">Login</a></li>
             </ul>
           </div>
         </div>
@@ -172,12 +172,13 @@
           <div class="card animated bounceInUp fast">
             <div class="card-body" align="center">
               <img src="/assets/images/dicas.png" width="70" height="70" alt="">
-              <h5 class="subtext mt-2">Dicas Oficiais</h5>
+              <h5 class="subtext mt-2">Dicas</h5>
               <h6 class="card-subtitle mb-2 text-muted">O que você precisa saber e fazer</h6>
               <a href="/home" type="button" class="btn btn-outline-dark btn-block">Ver Mais</a>
             </div>
           </div>
         </div>
+        
         <div class="col-md-4">
           <div class="card animated bounceInUp fast">
             <div class="card-body" align="center">

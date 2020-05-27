@@ -2,20 +2,18 @@
 <html lang="pt-br">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="expires" content="Mon, 26 Jul 1997 05:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <link rel="stylesheet" href="/assets/dist/leaflet-search.css" />
-
-
     <link rel="icon" href="/assets/images/virus.png">
+    <title>Painel COVID-MG</title>
+
     <style>
         #map {
             min-height: 600px;
@@ -26,7 +24,6 @@
             pointer-events: none;
         }
     </style>
-    <title>Painel COVID-MG</title>
 </head>
 
 <?php if (isset($casos)) { ?>
@@ -46,9 +43,10 @@
                         <div class="col-sm-4 offset-md-1 py-4">
                             <h4 class="text-white">Menu</h4>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="text-white disable-links">Projetos</a></li>
-                                <li><a href="#" class="text-white disable-links">Dicas</a></li>
-                                <li><a href="#" class="text-white disable-links">Doação</a></li>
+                                <li><a href="home/projetos" class="text-white">Projetos</a></li>
+                                <li><a href="home/dicas" class="text-white">Dicas</a></li>
+                                <li><a href="home/doacao" class="text-white">Doação</a></li>
+                                <li><a href="home/login" class="text-white">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,7 +84,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor1"><?php if (isset($casos['suspeitosCaso'])) echo $casos['suspeitosCaso'];
-                                                                else echo '0'; ?></h3>
+                                                            else echo '0'; ?></h3>
                                         <p class="subtext">Casos Suspeitos</p>
                                     </div>
                                     <div class="col">
@@ -103,7 +101,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor2"><?php if (isset($casos['confirmadosCaso'])) echo $casos['confirmadosCaso'];
-                                                                else echo '0'; ?></h3>
+                                                            else echo '0'; ?></h3>
                                         <p class="subtext">Confirmados</p>
                                     </div>
                                     <div class="col">
@@ -120,7 +118,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor3"><?php if (isset($casos['descartadosCaso'])) echo $casos['descartadosCaso'];
-                                                                else echo '0'; ?></h3>
+                                                            else echo '0'; ?></h3>
                                         <p class="subtext">Casos Descartados</p>
                                     </div>
                                     <div class="col">
@@ -137,7 +135,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h3 class="cor4"><?php if (isset($casos['obitosCaso'])) echo $casos['obitosCaso'];
-                                                                else echo '0'; ?></h3>
+                                                            else echo '0'; ?></h3>
                                         <p class="subtext">Casos de Óbitos</p>
                                     </div>
                                     <div class="col">

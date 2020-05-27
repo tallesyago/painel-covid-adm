@@ -10,46 +10,28 @@ Remodelar com o sistema novo - Thiago
 
 Revisar cache nas paginas - Thiago
 
-
-
-adicionar o card de recuperados na listagem também - Ariel
-
+--------------------------------------
+FALTA --------------------------------
 arrumar rota home pra usuarios logados - Ariel
 
-grafico pagina inicial com refresh desregulado - Ariel
+--------------------------------------
+FEITOS-------------------------------
+Excluir pagina template - Ariel (x)
 
-Botão de login no menu - Ariel
+Remover Texto Dicas Oficias(Só dicas), ja tinha uma pagina pronta - Ariel (pagina de dicas adicionada)
 
-Pagina estatica de Projetos - Ariel
+grafico pagina inicial com refresh desregulado - Ariel (acho que corrigi, testa e marca aqui, não consegui reproduzir o erro no meu pc pra saber kk)
 
-Remover Texto Dicas Oficias(Só dicas), ja tinha uma pagina pronta - Ariel
+Botão de login no menu - Ariel (x)
 
-Página doação em desenvolvimento - Ariel
+----------------------------------------------
+AGUARDANDO FRONT-------------------------------
 
-Excluir pagina template - Ariel
+adicionar o card de recuperados na listagem também - Ariel (já tava pronto, esperando o front do Thalles pra integrar)
 
-botão cadastrar alerta na listagem de dados - Ariel
+Pagina estatica de Projetos - Ariel (Thalles está corrigindo)
 
-
-
-
-
-
-
- 
+Página doação em desenvolvimento - Ariel (Thalles vai criar um modal)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+botão cadastrar alerta na listagem de dados - Ariel (Thalles está fazendo o front, back ainda é mistério)
